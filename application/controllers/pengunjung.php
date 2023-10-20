@@ -1,59 +1,144 @@
 <?php
 
-class pengunjung extends CI_Controller {
+class pengunjung extends CI_Controller
+{
+	public function __construct()
+	{
+		parent::__construct();
+		is_logged_out();
+	}
 	public function index()
 	{
-		$this->load->view('template_pengunjung/header');
-		$this->load->view('pengunjung/index');
-		$this->load->view('template_pengunjung/footer');
+		$this->load->model('berita_model', 'berita');
+		$data['title'] = 'Beranda';
+		$data['konten'] = $this->berita->getBerita();
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/index', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
+
+	public function berita()
+	{
+		$this->load->model('berita_model', 'berita');
+		$data['title'] = 'Berita';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/berita';
+		$config['total_rows'] = $this->berita->countAllBerita();
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+		$data['konten'] = $this->berita->getBeritaPage($config['per_page'], $data['start']);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/berita', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
+
+	public function pengumuman()
+	{
+		$this->load->model('pengumuman_model', 'pengumuman');
+		$data['title'] = 'Pengumuman';
+		$data['href'] = 'berita/detail/';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pengumuman';
+		$config['total_rows'] = $this->pengumuman->countAllPengumuman();
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+		$data['konten'] = $this->pengumuman->getPengumumanPage($config['per_page'], $data['start']);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/pengumuman', $data);
+		$this->load->view('temp_pengunjung/footer');
 	}
 
 	public function sejarah()
 	{
-
-		$this->load->view('template_pengunjung/header');
-		$this->load->view('pengunjung/sejarah');
-		$this->load->view('template_pengunjung/footer');
+		$this->load->model('sejarah_model', 'sejarah');
+		$data['title'] = 'Sejarah';
+		$data['informasi'] = $this->sejarah->getSejarah();
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/sejarah', $data);
+		$this->load->view('temp_pengunjung/footer');
 	}
 
 	public function visi_misi()
 	{
-
-		$this->load->view('template_pengunjung/header');
-		$this->load->view('pengunjung/visi_misi');
-		$this->load->view('template_pengunjung/footer');
+		$this->load->model('visi_misi_model', 'visi_misi');
+		$data['title'] = 'Visi dan Misi';
+		$data['visi'] = $this->visi_misi->getVisi();
+		$data['misi'] = $this->visi_misi->getMisi();
+		$data['tujuan'] = $this->visi_misi->getTujuan();
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/visi_misi', $data);
+		$this->load->view('temp_pengunjung/footer');
 	}
-	
+
 	public function pengelola()
 	{
-		
-		$this->load->view('template_pengunjung/header');
-		$this->load->view('pengunjung/pengelola');
-		$this->load->view('template_pengunjung/footer');
+		$this->load->model('pengelola_model', 'pengelola');
+		$data['title'] = 'Struktur Organisasi';
+		$data['informasi'] = $this->pengelola->getpengelola();
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/pengelola', $data);
+		$this->load->view('temp_pengunjung/footer');
 	}
 
 	public function pusat_studi()
 	{
-
-		$this->load->view('template_pengunjung/header');
-		$this->load->view('pengunjung/pusat_studi');
-		$this->load->view('template_pengunjung/footer');
+		$this->load->model('pusat_studi_model', 'pusat_studi');
+		$data['title'] = 'Pusat Studi';
+		$data['informasi'] = $this->pusat_studi->getPusat_Studi();
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/pusat_studi', $data);
+		$this->load->view('temp_pengunjung/footer');
 	}
 
-	public function peraturan_panduan()
+	public function dokumen()
 	{
+		$this->load->model('dok_lp3mp_model', 'dkm');
+		$data['title'] = 'Dokumen';
 
-		$this->load->view('template_pengunjung/header');
-		$this->load->view('pengunjung/peraturan_panduan');
-		$this->load->view('template_pengunjung/footer');
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/dokumen';
+		$config['total_rows'] = $this->dkm->countAllDokumen();
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+		$data['dokumen'] = $this->dkm->getDokumenPage($config['per_page'], $data['start']);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/dokumen', $data);
+		$this->load->view('temp_pengunjung/footer');
 	}
 
-	public function konten_berita()
+	public function filter()
 	{
+		$fakultas = $this->input->post('fakultas');
+		$data['title'] = 'Sertifikat Akreditasi';
 
-		$this->load->view('template_pengunjung/header');
-		$this->load->view('pengunjung/konten_berita');
-		$this->load->view('template_pengunjung/footer');
+		$this->load->model('dok_sertifikat_model', 'dok_sertifikat');
+		$data['dokumen'] = $this->dok_sertifikat->filterByProgramStudi($fakultas);
+
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/akreditas', $data);
+		$this->load->view('temp_pengunjung/footer');
 	}
 
+
+	public function akreditas()
+	{
+		$this->load->model('dok_sertifikat_model', 'dok_sertifikat');
+		$data['title'] = 'Sertifikat Akreditasi';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/akreditas';
+		$config['total_rows'] = $this->dok_sertifikat->countAllDokumen();
+		$config['per_page'] = 15;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+		$data['dokumen'] = $this->dok_sertifikat->getDokumenPage($config['per_page'], $data['start']);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/akreditas', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
 }

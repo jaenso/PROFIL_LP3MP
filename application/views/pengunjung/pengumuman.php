@@ -1,79 +1,80 @@
 <section class="konten">
-      <div class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-9">
+        <h1><?= $title ?></h1>
         <div class="row justify-content-center">
-          <div class="col-md-9 main-berita px-4">
-            <h1 class="text-center text-dark">PENGUMUMAN</h1>
-
-            <div class="d-md-flex post-entry-2 mt-4 px-4">
-              <img
-                class="me-4 border px-2 py-2 bingkai-konten"
-                src="<?= base_url();?>images/lembaga.png"
-              />
-              <div>
-                <span>02 September 2023</span>
-                <span class="mx-1">&bullet;</span>
-                <span>Joshua</span>
-
-                <h2>
-                  What is the son of Football Coach John Gruden, Deuce Gruden
-                  doing Now?
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Distinctio placeat exercitationem magni voluptates dolore.
-                  Tenetur fugiat voluptates quas, nobis error deserunt aliquam
-                  temporibus sapiente, laudantium dolorum itaque libero eos
-                  deleniti?
-                </p>
-                <a href="<?= base_url();?>konten-berita.html" class="btn btn-primary"
-                  >Baca Selengkapnya</a
-                >
+          <?php foreach ($konten as $pgm) : ?>
+            <div class="col-10">
+              <div class="card mt-5">
+                <?php if (empty($pgm->gambar) || !file_exists('uploads/' . $pgm->gambar)) {
+                  echo ""; ?>
+                <?php } else { ?>
+                  <img src="<?= base_url('uploads/' . $pgm->gambar); ?>" />
+                <?php } ?>
+              </div>
+              <div class="card-body">
+                <div class="judul">
+                  <h2><?= $pgm->judul ?></h2>
+                </div>
+                <div class="row identitas">
+                  <div class="col-4">
+                    <h3>Posted By <span class="d-block">SATUAN PENJAMINAN MUTU UM</span></h3>
+                  </div>
+                  <div class="col-2">
+                    <h3>Categories <span class="d-block">Berita</span></h3>
+                  </div>
+                  <div class="col-2">
+                    <?php
+                    $tanggal = date('d-m-Y', strtotime($pgm->tanggal));
+                    $tanggalAkhir = date('d F Y', strtotime($tanggal)); ?>
+                    <h3>Tanggal <span class="d-block"><?= $tanggalAkhir ?></span></h3>
+                  </div>
+                </div>
+                <div class="isi">
+                  <p>
+                    <?php
+                    $isi = $pgm->isi;
+                    $max_length = 200;
+                    if (strlen($isi) > $max_length) {
+                      $isi = substr($isi, 0, $max_length) . '...';
+                    }
+                    echo $isi;
+                    ?>
+                  </p>
+                  <a href="<?= base_url(); ?>pengumuman/detail/<?= $pgm->id_konten; ?>" class="btn">Baca Selengkapnya</a>
+                </div>
               </div>
             </div>
-            <div class="d-md-flex post-entry-2 mt-4 py-4 px-4">
-              <img
-                class="me-4 border px-2 py-2 bingkai-konten"
-                src="<?= base_url();?>simages/lembaga-2.png"
-              />
-              <div>
-                <span>02 September 2023</span>
-                <span class="mx-1">&bullet;</span>
-                <span>Joshua</span>
-
-                <h2>
-                  What is the son of Football Coach John Gruden, Deuce Gruden
-                  doing Now?
-                </h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Distinctio placeat exercitationem magni voluptates dolore.
-                  Tenetur fugiat voluptates quas, nobis error deserunt aliquam
-                  temporibus sapiente, laudantium dolorum itaque libero eos
-                  deleniti?
-                </p>
-                <a href="<?= base_url();?>konten-berita.html" class="btn btn-primary"
-                  >Baca Selengkapnya</a
-                >
+          <?php endforeach ?>
+          <?= $this->pagination->create_links(); ?>
+        </div>
+      </div>
+      <div class="col-3 sidebar">
+        <div class="row">
+          <div class="col-10">
+            <h2>SEARCH</h2>
+            <form action="#" method="get">
+              <div class="input-group">
+                <input class="form-control" type="search" name="search" placeholder="Cari..." />
+                <button class="btn btn-outline-light" type="submit">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                  </svg>
+                </button>
               </div>
-            </div>
-
-            <!-- <div class="text-start py-4">
-              <div class="custom-pagination">
-                <a href="#" class="prev">Prevous</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#" class="next">Next</a>
-              </div>
-            </div> -->
+            </form>
           </div>
-          <div class="col-md-3">
-            <div class="row main-white">
-              <h2 class="text-dark text-center">KATEGORI</h2>
-              <a class="btn konten text-center" href="#">BERITA</a>
-              <a class="btn konten text-center" href="#">PENGUMUMAN</a>
-              <a class="btn konten text-center" href="#">DOKUMEN</a>
+          <div class="col-10 mt-3">
+            <h2>CATEGORIES</h2>
+            <div class="row">
+              <a href="<?= base_url(); ?>pengunjung/berita">BERITA</a>
+              <a href="<?= base_url(); ?>pengunjung/pengumuman">PENGUMUMAN</a>
+              <a href="<?= base_url(); ?>pengunjung/dokumen">DOKUMEN</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>

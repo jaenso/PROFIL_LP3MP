@@ -1,0 +1,389 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;700;900&display=swap");
+
+:root {
+  --dark-color: #03001c;
+  --white-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  background-color: var(--white-color);
+  padding: 30px 30px;
+}
+
+.informasi, .konten, .isi-konten, .konten-lain {
+  padding-top: 10vh;
+}
+
+.informasi p {
+  text-align: justify;
+  font-size: 1.1rem;
+}
+
+.informasi a, i {
+  font-size: 1rem;
+}
+
+/* UTILITIES */
+.text-dark {
+  color: var(--dark-color);
+}
+
+.text-white {
+  color: var(--white-color);
+}
+
+.main-header,
+.main-footer {
+  background: rgb(9,64,121);
+  background: linear-gradient(90deg, rgba(9,64,121,1) 20%, rgba(0,171,255,1) 100%);
+}
+
+h1 {
+  text-align: center;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  padding: 10px 0;
+}
+
+/* HEADER */
+.navbar img.main-logo {
+  max-width: 60px;
+}
+
+.navbar h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.navbar .nav-item .nav-link,
+.dropdown-item {
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+.navbar .dropdown-item {
+  margin: 15px 0;
+  font-size: 1rem;
+}
+
+.navbar li a.nav-link:hover {
+  color: var(--white-color);
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* SIDEBAR */
+.sidebar h2 {
+  border-left: 5px solid #007bff; 
+  padding-left: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.sidebar a {
+  text-decoration: none;
+  padding-left: 20px;
+  color: var(--dark-color);
+  font-size: 0.9rem;
+}
+
+/* RECENT-POST */
+.recent-post h1 {
+  font-size: 0.9rem;
+  text-align: start;
+  color: #555;
+}
+
+.recent-post a {
+  font-size: 1rem;
+  color: var(--dark-color);
+}
+
+/* OUTER LINK */
+.outer-link {
+  margin-top: 8vh;
+}
+
+.outer-link h1 {
+  font-size: 0.9rem;
+  text-align: start;
+  color: #555;
+}
+.outer-link .bingkai-format {
+  width: 9vh;
+  height: 9vh;
+  margin-right: 5px;
+}
+
+.outer-link a {
+  font-size: 1.2rem;
+  color: var(--dark-color);
+}
+
+.outer-link span {
+  font-size: 0.7rem;
+}
+
+/* LEMBAGA */
+.lembaga .card {
+  margin-top: 20px;
+  max-width: 85vh;
+  max-height: 75vh;
+  overflow: hidden;
+  border-color: var(--dark-color);
+}
+
+.lembaga .card .bingkai-lembaga {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.lembaga .card h2 {
+  font-size: 1.8rem;
+  font-weight: bolder;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.lembaga .card p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* DOKUMEN */
+.dokumen img.bingkai-format {
+  width: 7vh;
+  height: 7vh;
+  margin-right: 20px;
+}
+
+/* BERITA-UTAMA */
+.berita-utama .card {
+  max-width: 60vh;
+  border-color: var(--dark-color);
+}
+
+.berita-utama .card .bingkai-berita-utama {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.berita-utama .card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 10px 0;
+  color: var(--dark-color);
+}
+
+.berita-utama .card p {
+  font-size: 1rem;
+}
+
+/* BERITA SLIDE */
+.berita-slide .card {
+  padding: 20px 0;
+  max-width: 40vh;
+  overflow: hidden;
+  border: none;
+}
+
+.berita-slide .card .card-img-top {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.berita-slide .card-body h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.berita-slide p {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .berita-slide .card .card-img-top {
+    height: 150px;
+  }
+}
+
+/* BERITA & PENGUMUMAN */
+.konten .card {
+  border: none;
+}
+
+.konten img {
+  max-width: 128vh;
+  max-height: 65vh;
+  object-fit: cover;
+}
+
+.konten h2 {
+  margin: 20px 0px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.konten .card-body {
+  max-width: 115vh;
+}
+
+.konten .identitas h3 {
+  font-size: 0.9rem;
+  color: var(--dark-color);
+}
+
+.konten .isi p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.konten .isi a {
+  font-size: 1rem;
+  color: var(--dark-color);
+  background-color: #216599;
+}
+
+.konten .isi a:hover {
+  background-color: #60a0d1;
+  color: var(--white-color);
+}
+
+/* ISI BERITA & PENGUMUMAN */
+.isi-konten .identitas h3,  span a{
+  font-size: 0.9rem;
+}
+
+.isi-konten h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: start;
+}
+
+.isi-konten p {
+  text-align: justify;
+  font-size: 1rem;
+}
+
+.isi-konten .bingkai-konten {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  padding: 20px 0;
+}
+
+/* KONTEN BERITA LAIN & PENGUMUMAN LAIN */
+.konten-lain h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.konten-lain .card {
+  border: none;
+  max-width: 40vh;
+  overflow: hidden;
+}
+
+.konten-lain .card-body p {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.konten-lain .card-body h2,
+a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: start;
+  margin-bottom: 0.5rem;
+}
+
+.konten-lain .card .bingkai-konten-lain {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* FOOTER */
+.main-footer img.logo-footer {
+  max-width: 80px;
+}
+
+.main-footer h1 {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.main-footer p {
+  font-size: 0.9rem;
+}
+
+.main-footer ul,
+li a {
+  list-style-type: none;
+  padding-left: 0px;
+  margin-left: 0px;
+  text-decoration: none;
+  color: var(--dark-color);
+  font-size: 0.9rem;
+}
+
+.main-footer a:hover {
+  color: var(--white-color);
+  font-weight: bold;
+}
+
+h3.judul-berita {
+  font-size: 15px;
+}
+
+/* PENGELOLA */
+.tokoh {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.tokoh:hover {
+  background-color: #f0f0f0;
+}
+
+.deskripsi-tokoh {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.tokoh.active .deskripsi-tokoh {
+  max-height: 1000px;
+}
+
+.pengelola-deskripsi .bingkai-pengelola {
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+}
+
+.pengelola-deskripsi p {
+  padding-top: 1rem;
+  line-height: 1.6;
+  font-size: 1.4rem;
+}
