@@ -52,15 +52,15 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="<?= base_url(); ?>pengunjung/berita">Berita</a></li>
               <li>
-                <a class="dropdown-item" href="<?= base_url(); ?>pengunjung/berita">Pengumuman</a>
+                <a class="dropdown-item" href="<?= base_url(); ?>pengunjung/pengumuman">Pengumuman</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pelatihan Dosen</a>
+            <a class="nav-link" href="<?= base_url(); ?>pengunjung/pelatihan">Pelatihan Dosen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Benchmarking</a>
+            <a class="nav-link" href="<?= base_url(); ?>pengunjung/benchmarking">Benchmarking</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://spmi.upr.ac.id">SPMI</a>

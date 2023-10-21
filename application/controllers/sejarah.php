@@ -12,7 +12,7 @@ class sejarah extends CI_Controller
     public function index()
     {
         is_logged_out();
-        $data['tittle'] = 'Sejarah';
+        $data['title'] = 'Sejarah';
         $data['user'] = get_user();
         $data['informasi'] = $this->sejarah->getsejarah();
         if ($this->input->post('keyword')) {

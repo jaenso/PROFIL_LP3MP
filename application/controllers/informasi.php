@@ -16,7 +16,7 @@ class informasi extends CI_Controller
     public function edit_pgl($idf)
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Ubah Pengelola';
+        $data['title'] = 'Ubah Pengelola';
         $data['informasi'] = $this->pengelola->getPengelolaById($idf);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
@@ -36,7 +36,7 @@ class informasi extends CI_Controller
     public function edit_vm($idf)
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Ubah visi_misi';
+        $data['title'] = 'Ubah Visi Misi dan Tujuan';
         $data['informasi'] = $this->visi_misi->getVisiMisiById($idf);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
@@ -56,7 +56,7 @@ class informasi extends CI_Controller
     public function edit_sjr($idf)
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Ubah Sejarah';
+        $data['title'] = 'Ubah Sejarah';
         $data['informasi'] = $this->sejarah->getSejarahById($idf);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
@@ -76,7 +76,7 @@ class informasi extends CI_Controller
     public function edit_ps($idf)
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Ubah Pusat Studi';
+        $data['title'] = 'Ubah Pusat Studi';
         $data['informasi'] = $this->pusat_studi->getPusat_StudiById($idf);
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');

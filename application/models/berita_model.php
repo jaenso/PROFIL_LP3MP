@@ -2,9 +2,27 @@
 
 class berita_model extends CI_Model
 {
-  public function getKonten($idk) {
+  public function getKonten($idk)
+  {
     return $this->db->get_where('konten', ['id_konten' => $idk])->result();;
   }
+
+  public function getBeritaByFilter($tgl_awal, $tgl_akhir)
+  {
+    $this->db->select('*');
+    $this->db->from('konten');
+    $this->db->where('tanggal >=', $tgl_awal);
+    $this->db->where('tanggal <=', $tgl_akhir);
+
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return array();
+    }
+  }
+
 
   public function  getBerita()
   {

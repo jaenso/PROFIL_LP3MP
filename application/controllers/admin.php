@@ -19,6 +19,49 @@ class admin extends CI_Controller
         $this->load->view('temp_admin/footer');
     }
 
+    public function filterKonten()
+    {
+        is_logged_out();
+        $data['user'] = get_user();
+        $data['title'] = 'Filter Konten';
+        $config['base_url'] = 'http://localhost/ci3-test/admin/filterKonten';
+        $this->load->model('konten_model', 'konten');
+
+        $config['total_rows'] = $this->konten->countAllKonten();
+        $config['per_page'] = 10;
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['konten'] = $this->konten->getKontenPage($config['per_page'], $data['start']);
+        $this->load->view('temp_admin/header', $data);
+        $this->load->view('temp_admin/sidebar', $data);
+        $this->load->view('admin/filter_konten/index', $data);
+        $this->load->view('temp_admin/footer');
+    }
+
+    public function getFilterTanggal()
+    {
+        is_logged_out();
+        $data['user'] = get_user();
+        $tgl_awal = $this->input->post('start_date');
+        $tgl_akhir = $this->input->post('end_date');
+
+        $data['title'] = 'Sertifikat Akreditasi';
+
+        $this->load->model('berita_model', 'berita');
+        $data['konten'] = $this->berita->getBeritaByFilter($tgl_awal, $tgl_akhir);
+        $config['base_url'] = 'http://localhost/ci3-test/admin/berita';
+        $config['total_rows'] = $this->berita->countAllBerita();
+        $config['per_page'] = 10;
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $this->load->view('temp_admin/header', $data);
+        $this->load->view('temp_admin/sidebar', $data);
+        $this->load->view('admin/filter_konten/index', $data);
+        $this->load->view('temp_admin/footer');
+    }
+
     public function berita()
     {
         $this->load->model('berita_model', 'berita');
@@ -45,8 +88,8 @@ class admin extends CI_Controller
     public function pengumuman()
     {
         $this->load->model('pengumuman_model', 'pengumuman');
-        is_logged_out();
         $data['title'] = 'Pengumuman';
+        is_logged_out();
         $data['user'] = get_user();
 
         $config['base_url'] = 'http://localhost/ci3-test/admin/pengumuman';
@@ -62,6 +105,52 @@ class admin extends CI_Controller
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
         $this->load->view('admin/pengumuman/index', $data);
+        $this->load->view('temp_admin/footer');
+    }
+
+    public function pelatihan()
+    {
+        $this->load->model('pelatihan_model', 'pelatihan');
+        $data['title'] = 'Pelatihan Dosen';
+        is_logged_out();
+        $data['user'] = get_user();
+
+        $config['base_url'] = 'http://localhost/ci3-test/pengunjung/pelatihan';
+        $config['total_rows'] = $this->pelatihan->countAllPelatihan();
+        $config['per_page'] = 10;
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['konten'] = $this->pelatihan->getPelatihanPage($config['per_page'], $data['start']);
+        if ($this->input->post('keyword')) {
+            $data['konten'] = $this->pengumuman->cariPelatihan();
+        }
+        $this->load->view('temp_admin/header', $data);
+        $this->load->view('temp_admin/sidebar', $data);
+        $this->load->view('admin/pelatihan/index', $data);
+        $this->load->view('temp_admin/footer');
+    }
+
+    public function benchmarking()
+    {
+        $this->load->model('benchmarking_model', 'benchmarking');
+        $data['title'] = 'Benchmarking';
+        is_logged_out();
+        $data['user'] = get_user();
+
+        $config['base_url'] = 'http://localhost/ci3-test/pengunjung/benchmarking';
+        $config['total_rows'] = $this->benchmarking->countAllBenchmarking();
+        $config['per_page'] = 10;
+        $this->pagination->initialize($config);
+
+        $data['start'] = $this->uri->segment(3);
+        $data['konten'] = $this->benchmarking->getBenchmarkingPage($config['per_page'], $data['start']);
+        if ($this->input->post('keyword')) {
+            $data['konten'] = $this->benchmarking->cariPelatihan();
+        }
+        $this->load->view('temp_admin/header', $data);
+        $this->load->view('temp_admin/sidebar', $data);
+        $this->load->view('admin/benchmarking/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
@@ -265,39 +354,9 @@ class admin extends CI_Controller
             $idw = $this->input->post('idw');
             $nama = $this->input->post('nama', true);
             $deskripsi = $this->input->post('deskripsi', true);
-            $feb = $this->input->post('feb', true);
-            $fkip = $this->input->post('fkip', true);
-            $fp = $this->input->post('fp', true);
-            $ft = $this->input->post('ft', true);
-            $fh = $this->input->post('fh', true);
-            $fisip = $this->input->post('fisip', true);
-            $fk = $this->input->post('fk', true);
-            $fmipa = $this->input->post('fmipa', true);
-            $pps = $this->input->post('pps', true);
-            $tik = $this->input->post('tik', true);
-            $bahasa = $this->input->post('bahasa', true);
-            $perpustakaan = $this->input->post('perpustakaan', true);
-            $gambut = $this->input->post('gambut', true);
-            $terpadu = $this->input->post('terpadu', true);
-            $lppm = $this->input->post('lppm', true);
             $edit_data = array(
                 'nama' => $nama,
                 'deskripsi' => $deskripsi,
-                'feb' => $feb,
-                'fkip' => $fkip,
-                'fp' => $fp,
-                'ft' => $ft,
-                'fh' => $fh,
-                'fmipa' => $fmipa,
-                'fk' => $fk,
-                'fisip' => $fisip,
-                'pps' => $pps,
-                'tik' => $tik,
-                'bahasa' => $bahasa,
-                'perpustakaan' => $perpustakaan,
-                'gambut' => $gambut,
-                'terpadu' => $terpadu,
-                'lppm' => $lppm
             );
 
             if ($gambar_logo) {

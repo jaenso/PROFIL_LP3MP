@@ -1,7 +1,7 @@
 <section class="lembaga">
   <div class="coontainer-fluid">
     <div class="row pt-4">
-      <div class="col-9 border border-5">
+      <div class="col-9">
         <h1>Lembaga LP3MP</h1>
         <div class="row justify-content-evenly">
           <div class="col-6">
@@ -66,10 +66,10 @@
       </div>
       <div class="col-3 outer-link">
         <div class="row">
-          <div class="col-10 mx-5 border border-5">
+          <div class="col-10 mx-5">
             <h1>Outer Links</h1>
             <div class="row">
-              <div class="col-12 border border-5 mb-2">
+              <div class="col-12 mb-2">
                 <div class="d-flex">
                   <img src="<?= base_url(); ?>assets_pengunjung/images/BAN-PT.png" class="bingkai-format">
                   <div>
@@ -78,7 +78,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 border border-5 mb-2">
+              <div class="col-12 mb-2">
                 <div class="d-flex">
                   <img src="<?= base_url(); ?>assets_pengunjung/images/LAMSAMA.png" class="bingkai-format">
                   <div>
@@ -97,98 +97,47 @@
 <section class="berita-utama">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-9 border border-5">
+      <div class="col-10 border border-5">
         <div class="row justify-content-evenly">
           <h1>Berita Utama</h1>
-          <div class="col-6">
-            <div class="card">
-              <a href="berita.html">
-                <img class="bingkai-berita-utama" src="<?= base_url(); ?>assets_pengunjung/images/lembaga.png" alt="">
-                <div class="card-body">
-                  <h2>Penanganan Budi Pekerti</h2>
-              </a>
-              <p class="text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint officiis architecto, soluta unde rerum pariatur assumenda quasi, laudantium maxime tenetur nam temporibus vel, distinctio quaerat aperiam culpa praesentium aliquid. Aperiam?</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card">
-            <a href="berita.html">
-              <img class="bingkai-berita-utama" src="<?= base_url(); ?>assets_pengunjung/images/lembaga-2.png" alt="">
-              <div class="card-body">
-                <h2>Penanganan Budi Pekerti</h2>
-            </a>
-            <p class="text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint officiis architecto, soluta unde rerum pariatur assumenda quasi, laudantium maxime tenetur nam temporibus vel, distinctio quaerat aperiam culpa praesentium aliquid. Aperiam?</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card">
-          <a href="berita.html">
-            <img class="bingkai-berita-utama" src="<?= base_url(); ?>assets_pengunjung/images/lembaga-2.png" alt="">
-            <div class="card-body">
-              <h2>Penanganan Budi Pekerti</h2>
-          </a>
-          <p class="text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint officiis architecto, soluta unde rerum pariatur assumenda quasi, laudantium maxime tenetur nam temporibus vel, distinctio quaerat aperiam culpa praesentium aliquid. Aperiam?</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="card">
-        <a href="berita.html">
-          <img class="bingkai-berita-utama" src="<?= base_url(); ?>assets_pengunjung/images/lembaga-2.png" alt="">
-          <div class="card-body">
-            <h2>Penanganan Budi Pekerti</h2>
-        </a>
-        <p class="text-truncate">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint officiis architecto, soluta unde rerum pariatur assumenda quasi, laudantium maxime tenetur nam temporibus vel, distinctio quaerat aperiam culpa praesentium aliquid. Aperiam?</p>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="col-3 recent-post">
-    <div class="row">
-      <div class="col-12 ms-2 border border-5">
-        <h1>Recent Post</h1>
-        <div class="row">
-          <div class="col-12 border border-5 mb-2">
-            <a href="">Pengalaman Bekerja Di LP3MP</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
-
-<section class="berita-slide" id="berita-slide">
-  <div class="container-fluid">
-    <h1>BERITA</h1>
-    <div class="swiper berita-swiper">
-      <div class="swiper-wrapper">
-        <?php foreach ($konten as $brt) : ?>
-          <div class="swiper-slide">
-            <div class="card">
-              <!-- <a href="<?= base_url(); ?>pengunjung/konten_berita"> -->
-              <a href="<?= base_url(); ?>berita/detail/<?= $brt->id_konten; ?>">
-                <img src="<?= base_url('uploads/' . $brt->gambar) ?>" class="card-img-top rounded mb-3" alt="Gambar 1" />
-              </a>
-              <div class="card-body">
-                <h3 class="fw-semibold"><?= $brt->judul ?></h3>
+          <?php
+          foreach ($konten as $brt) : ?>
+            <div class="col-6 mt-3">
+              <div class="card">
+                <a href="<?= base_url(); ?>berita/detail/<?= $brt->id_konten; ?>">
+                  <img class="bingkai-berita-utama" src="<?= base_url('uploads/' . $brt->gambar); ?>">
+                  <div class=" card-body">
+                    <h2><?= $brt->judul ?></h2>
+                    <p class="text-truncate">
+                      <?php
+                      $isi = $brt->isi;
+                      $max_length = 100;
+                      if (strlen($isi) > $max_length) {
+                        $isi = substr($isi, 0, $max_length) . '...';
+                      }
+                      echo $isi;
+                      ?></p>
+                  </div>
                 </a>
-                <p><?= $brt->isi ?></p>
               </div>
             </div>
-          </div>
-        <?php endforeach ?>
+          <?php endforeach ?>
+          <?= $this->pagination->create_links(); ?>
+        </div>
       </div>
-      <div class="d-flex align-items-center justify-content-end gap-3">
-        <button class="btn btn-light d-flex align-items-center justify-content-center btn-prev">
-          <i class="bx bx-left-arrow-alt"></i>
-        </button>
-        <button class="btn btn-light d-flex align-items-center justify-content-center btn-next">
-          <i class="bx bx-right-arrow-alt"></i>
-        </button>
+      <div class="col-2 recent-post">
+        <div class="row">
+          <div class="col-12 ms-2">
+            <h1>Recent Post</h1>
+            <div class="row">
+              <?php foreach ($konten_lain as $ktn) : ?>
+                <div class="col-12 mb-2">
+                  <a href="<?= base_url(); ?>berita/detail/<?= $ktn->id_konten; ?>"><?= $ktn->judul; ?></a>
+                </div>
+              <?php endforeach ?>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

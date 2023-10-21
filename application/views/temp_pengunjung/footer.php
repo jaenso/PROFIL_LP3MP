@@ -15,25 +15,26 @@
         <div class="col-lg-3 mb-3">
           <h3 class="text-white">FAKULTAS</h3>
           <ul>
-            <li><a href="">FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</a></li>
-            <li><a href="">FAKULTAS EKONOMI & BISNIS</a></li>
-            <li><a href="">FAKULTAS PERTANIAN</a></li>
-            <li><a href="">FAKULTAS TEKNIK</a></li>
-            <li><a href="">FAKULTAS HUKUM</a></li>
-            <li><a href=""></a>FAKULTAS ILMU SOSIAL DAN POLITIK</li>
-            <li><a href=""></a>FAKULTAS KEDOKTERAN</li>
-            <li><a href=""></a>FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM</li>
-            <li><a href=""></a>PROGRAM PASCA SARJANA</li>
+            <li><a href="https://fkip.upr.ac.id/">FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</a></li>
+            <li><a href="https://feb.upr.ac.id/">FAKULTAS EKONOMI & BISNIS</a></li>
+            <li><a href="https://faperta.upr.ac.id/">FAKULTAS PERTANIAN</a></li>
+            <li><a href="https://ft.upr.ac.id/">FAKULTAS TEKNIK</a></li>
+            <li><a href="https://fh.upr.ac.id/">FAKULTAS HUKUM</a></li>
+            <li><a href="https://fisip.upr.ac.id/">FAKULTAS ILMU SOSIAL DAN POLITIK</a></li>
+            <li><a href="https://medical.upr.ac.id/">FAKULTAS KEDOKTERAN</a></li>
+            <li><a href="https://fmipa.upr.ac.id/">FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM</a></li>
+            <li><a href="https://pps.upr.ac.id/">PROGRAM PASCA SARJANA</a></li>
           </ul>
         </div>
         <div class="col-lg-3 mb-3">
           <h3 class="text-white">UNIT PELAYANAN TEKNIS & LEMBAGA</h3>
           <ul>
-            <li><a href="">UPT. TIK</a></li>
-            <li><a href="">UPT. PERPUSTAKAAN</a></li>
-            <li><a href="">UPT. LAB LAHAN GAMBUT</a></li>
-            <li><a href="">UPT. LAB TERPADU</a></li>
-            <li><a href="">LPPM</a></li>
+            <li><a href="https://tik.upr.ac.id/">UPT. TIK</a></li>
+            <li><a href="https://uptbahasaupr.wordpress.com/">UPT. BAHASA</a></li>
+            <li><a href="http://lib.upr.ac.id/">UPT. PERPUSTAKAAN</a></li>
+            <li><a href="https://www.upr.ac.id/#">UPT. LAB LAHAN GAMBUT</a></li>
+            <li><a href="http://laboratorium-terpadu.upr.ac.id/">UPT. LAB TERPADU</a></li>
+            <li><a href="https://lppm.upr.ac.id/">LPPM</a></li>
           </ul>
         </div>
       </div>
@@ -46,7 +47,7 @@
 <script src="vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
   var swiper = new Swiper(".berita-swiper", {
-    slidesPerView: 4,
+    slidesPerView: 2,
     spaceBetween: 30,
     navigation: {
       prevEl: ".btn-prev",

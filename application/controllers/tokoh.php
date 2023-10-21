@@ -13,7 +13,7 @@ class tokoh extends CI_Controller
     public function tambah_pgl()
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Tambah Tokoh Pengelola';
+        $data['title'] = 'Tambah Tokoh Pengelola';
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('nip', 'NIP', 'required');
         $this->form_validation->set_rules('golongan', 'Golongan', 'required');
@@ -60,7 +60,7 @@ class tokoh extends CI_Controller
     public function edit_pgl($idk)
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Ubah Tokoh Pengelola';
+        $data['title'] = 'Ubah Tokoh Pengelola';
         $data['tokoh'] = $this->tokoh_pgl->getTokohById($idk);
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -132,7 +132,7 @@ class tokoh extends CI_Controller
     public function tambah_ps()
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Tambah Tokoh Pusat Studi';
+        $data['title'] = 'Tambah Tokoh Pusat Studi';
         $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('nip', 'NIP', 'required');
         $this->form_validation->set_rules('golongan', 'Golongan', 'required');
@@ -179,7 +179,7 @@ class tokoh extends CI_Controller
     public function edit_ps($idk)
     {
         $data['user'] = get_user();
-        $data['tittle'] = 'Ubah Tokoh Pusat Studi';
+        $data['title'] = 'Ubah Tokoh Pusat Studi';
         $data['tokoh'] = $this->tokoh_ps->getTokohById($idk);
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');

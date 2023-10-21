@@ -46,7 +46,7 @@
                           <?php } ?></td>
                           <td><?= date('d-m-Y', strtotime($brt->tanggal)); ?></td>
                           <td>
-                            <a href="<?= base_url(); ?>konten/edit_brt/<?= $brt->id_konten; ?>" class="btn bg-success">
+                            <a href="<?= base_url(); ?>berita/detail/<?= $brt->id_konten; ?>" class="btn bg-success">
                               <i class="fas fa-eye"></i>
                             </a>
                             <a href="<?= base_url(); ?>konten/edit_brt/<?= $brt->id_konten; ?>" class="btn bg-warning">
@@ -65,5 +65,4 @@
             </div>
           </div>
         </div>
-      </div>
     </section>

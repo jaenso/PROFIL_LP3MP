@@ -68,6 +68,8 @@ class dokumen extends CI_Controller
         $data['user'] = get_user();
         $data['title'] = 'Tambah Sertifikat';
         $this->form_validation->set_rules('p_studi', 'Pusat Studi', 'required');
+        $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
         $this->form_validation->set_rules('strata', 'Strata', 'required');
         $this->form_validation->set_rules('no_sk', 'Nomor SK', 'required');
         $this->form_validation->set_rules('peringkat', 'Peringkat', 'required');
@@ -84,6 +86,8 @@ class dokumen extends CI_Controller
                 "p_studi" => $this->input->post('p_studi', true),
                 "strata" => $this->input->post('strata', true),
                 "no_sk" => $this->input->post('no_sk', true),
+                "fakultas" => $this->input->post('fakultas', true),
+                "keterangan" => $this->input->post('keterangan', true),
                 "peringkat" => $this->input->post('peringkat', true),
                 "tgl_kadaluarsa" => $this->input->post('tgl_kadaluarsa', true),
                 "link" => $this->input->post('link', true),
@@ -103,6 +107,8 @@ class dokumen extends CI_Controller
 
         $this->form_validation->set_rules('p_studi', 'Pusat Studi', 'required');
         $this->form_validation->set_rules('strata', 'Strata', 'required');
+        $this->form_validation->set_rules('fakultas', 'Fakultas', 'required');
+        $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
         $this->form_validation->set_rules('no_sk', 'Nomor SK', 'required');
         $this->form_validation->set_rules('peringkat', 'Peringkat', 'required');
         $this->form_validation->set_rules('tgl_kadaluarsa', 'Tanggal Kadaluarsa', 'required');
@@ -118,6 +124,8 @@ class dokumen extends CI_Controller
             $edit_data = array(
                 "p_studi" => $this->input->post('p_studi', true),
                 "strata" => $this->input->post('strata', true),
+                "fakultas" => $this->input->post('fakultas', true),
+                "keterangan" => $this->input->post('keterangan', true),
                 "no_sk" => $this->input->post('no_sk', true),
                 "link" => $this->input->post('link', true),
                 "peringkat" => $this->input->post('peringkat', true),

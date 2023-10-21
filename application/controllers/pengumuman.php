@@ -11,10 +11,13 @@ class Pengumuman extends CI_Controller
 
     public function detail($idk)
     {
+        $this->load->model('berita_model', 'berita');
         $data['title'] = 'Konten Pengumuman';
         $data['konten'] = $this->pengumuman->getKonten($idk);
+        $data['konten_lain'] = $this->berita->getBerita();
+
         $this->load->view('temp_pengunjung/header', $data);
-        $this->load->view('pengunjung/isi_konten', $data);
+        $this->load->view('pengunjung/konten/isi_konten', $data);
         $this->load->view('temp_pengunjung/footer');
     }
 }

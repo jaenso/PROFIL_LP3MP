@@ -59,6 +59,8 @@
                                         <option value="">Semua</option>
                                         <option value="FAPERTA">Fakultas Pertanian</option>
                                         <option value="FEB">Fakultas Ekonomi Bisnis</option>
+                                        <option value="FK">Fakultas Kedokteran</option>
+                                        <option value="FKIP">FAKULTAS KEGURUAN DAN ILMU PENDIDIKAN</option>
                                     </select>
                                     <button type="submit" class="ms-3 btn btn-success">Filter</button>
                                 </form>
