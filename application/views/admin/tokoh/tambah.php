@@ -9,6 +9,11 @@
 					<form method="POST" enctype="multipart/form-data">
 						<div class="card-body">
 							<div class="form-group">
+								<label for="jabatan">Jabatan</label>
+								<input type="text" name="jabatan" class="form-control" id="jabatan" placeholder="Masukan jabatan">
+								<small class="form-text text-danger"><?= form_error('jabatan'); ?></small>
+							</div>
+							<div class="form-group">
 								<label for="nama">Nama</label>
 								<input type="text" name="nama" class="form-control" id="nama" placeholder="Masukan nama">
 								<small class="form-text text-danger"><?= form_error('nama'); ?></small>
@@ -19,9 +24,9 @@
 								<small class="form-text text-danger"><?= form_error('nip'); ?></small>
 							</div>
 							<div class="form-group">
-								<label for="golongan">Golongan</label>
-								<input type="text" name="golongan" class="form-control" id="golongan" placeholder="Masukan golongan">
-								<small class="form-text text-danger"><?= form_error('golongan'); ?></small>
+								<label for="kantor">Kantor</label>
+								<input type="text" name="kantor" class="form-control" id="kantor" placeholder="Masukan kantor">
+								<small class="form-text text-danger"><?= form_error('kantor'); ?></small>
 							</div>
 							<div class="form-group">
 								<label for="deskripsi">Deskripsi Pekerjaan</label>

@@ -10,6 +10,11 @@
 						<div class="card-body">
 							<input type="hidden" name="idt" value="<?= $tokoh['id_tokoh']; ?>">
 							<div class="form-group">
+								<label for="jabatan">Jabatan</label>
+								<input type="text" name="jabatan" class="form-control" id="jabatan" value="<?= $tokoh['jabatan']; ?>">
+								<small class="form-text text-danger"><?= form_error('jabatan'); ?></small>
+							</div>
+							<div class="form-group">
 								<label for="nama">Nama</label>
 								<input type="text" name="nama" class="form-control" id="nama" value="<?= $tokoh['nama']; ?>">
 								<small class="form-text text-danger"><?= form_error('nama'); ?></small>
@@ -20,9 +25,9 @@
 								<small class="form-text text-danger"><?= form_error('nip'); ?></small>
 							</div>
 							<div class="form-group">
-								<label for="golongan">Golongan</label>
-								<input type="text" name="golongan" class="form-control" id="golongan" value="<?= $tokoh['golongan']; ?>">
-								<small class="form-text text-danger"><?= form_error('golongan'); ?></small>
+								<label for="kantor">Kantor</label>
+								<input type="text" name="kantor" class="form-control" id="kantor" value="<?= $tokoh['kantor']; ?>">
+								<small class="form-text text-danger"><?= form_error('kantor'); ?></small>
 							</div>
 							<div class="form-group">
 								<label for="deskripsi">Deskripsi Pekerjaan</label>
@@ -32,10 +37,10 @@
 							<div class="form-group">
 								<label>Gambar Lama</label>
 								<br>
-								<?php if (empty($konten['gambar'])) { ?>
+								<?php if (empty($tokoh['gambar'])) { ?>
 									<img style="max-width: 300px; max-height: 800px" src="<?= base_url('uploads/default.jpg') ?>" />
 								<?php } else { ?>
-									<img style="max-width: 300px; max-height: 800px" src="<?= base_url('uploads/' . $konten['gambar']); ?>" alt="Gambar Lama" width="100">
+									<img style="max-width: 300px; max-height: 800px" src="<?= base_url('uploads/' . $tokoh['gambar']); ?>">
 								<?php } ?></td>
 							</div>
 							<div class="form-group">

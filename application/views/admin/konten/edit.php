@@ -30,7 +30,7 @@
 								<?php if (empty($konten['gambar'])) { ?>
 									<img style="max-width: 300px; max-height: 800px" src="<?= base_url('uploads/default.jpg') ?>" />
 								<?php } else { ?>
-									<img style="max-width: 300px; max-height: 800px" src="<?= base_url('uploads/' . $konten['gambar']); ?>" alt="Gambar Lama" width="100">
+									<img style="max-width: 300px; max-height: 800px" src="<?= base_url('uploads/' . $konten['gambar']); ?>">
 								<?php } ?></td>
 							</div>
 							<div class="form-group">

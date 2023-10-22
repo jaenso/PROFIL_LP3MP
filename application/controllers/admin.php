@@ -6,6 +6,9 @@ class admin extends CI_Controller
     {
         parent::__construct();
         check_admin();
+        $this->load->model('tokoh_m');
+        $this->load->model('informasi_m');
+        $this->load->model('konten_m');
     }
 
     public function index()
@@ -64,203 +67,191 @@ class admin extends CI_Controller
 
     public function berita()
     {
-        $this->load->model('berita_model', 'berita');
         is_logged_out();
         $data['user'] = get_user();
         $data['title'] = 'Berita';
+        $kategori = 'berita';
 
         $config['base_url'] = 'http://localhost/ci3-test/admin/berita';
-        $config['total_rows'] = $this->berita->countAllBerita();
+        $config['total_rows'] = $this->konten_m->countByKategori($kategori);
         $config['per_page'] = 10;
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['konten'] = $this->berita->getBeritaPage($config['per_page'], $data['start']);
+        $data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
         if ($this->input->post('keyword')) {
             $data['konten'] = $this->berita->cariBerita();
         }
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/berita/index', $data);
+        $this->load->view('admin/konten/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function pengumuman()
     {
-        $this->load->model('pengumuman_model', 'pengumuman');
         $data['title'] = 'Pengumuman';
         is_logged_out();
         $data['user'] = get_user();
+        $kategori = 'pengumuman';
 
         $config['base_url'] = 'http://localhost/ci3-test/admin/pengumuman';
-        $config['total_rows'] = $this->pengumuman->countAllPengumuman();
+        $config['total_rows'] = $this->konten_m->countByKategori($kategori);
         $config['per_page'] = 10;
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['konten'] = $this->pengumuman->getPengumumanPage($config['per_page'], $data['start']);
+        $data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
         if ($this->input->post('keyword')) {
             $data['konten'] = $this->pengumuman->cariPengumuman();
         }
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/pengumuman/index', $data);
+        $this->load->view('admin/konten/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function pelatihan()
     {
-        $this->load->model('pelatihan_model', 'pelatihan');
         $data['title'] = 'Pelatihan Dosen';
         is_logged_out();
         $data['user'] = get_user();
+        $kategori = 'pelatihan';
 
-        $config['base_url'] = 'http://localhost/ci3-test/pengunjung/pelatihan';
-        $config['total_rows'] = $this->pelatihan->countAllPelatihan();
+        $config['base_url'] = 'http://localhost/ci3-test/admin/pelatihan';
+        $config['total_rows'] = $this->konten_m->countByKategori($kategori);
         $config['per_page'] = 10;
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['konten'] = $this->pelatihan->getPelatihanPage($config['per_page'], $data['start']);
+        $data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
         if ($this->input->post('keyword')) {
             $data['konten'] = $this->pengumuman->cariPelatihan();
         }
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/pelatihan/index', $data);
+        $this->load->view('admin/konten/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function benchmarking()
     {
-        $this->load->model('benchmarking_model', 'benchmarking');
         $data['title'] = 'Benchmarking';
         is_logged_out();
         $data['user'] = get_user();
+        $kategori = 'benchmarking';
 
         $config['base_url'] = 'http://localhost/ci3-test/pengunjung/benchmarking';
-        $config['total_rows'] = $this->benchmarking->countAllBenchmarking();
+        $config['total_rows'] = $this->konten_m->countByKategori($kategori);
         $config['per_page'] = 10;
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['konten'] = $this->benchmarking->getBenchmarkingPage($config['per_page'], $data['start']);
+        $data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
         if ($this->input->post('keyword')) {
             $data['konten'] = $this->benchmarking->cariPelatihan();
         }
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/benchmarking/index', $data);
+        $this->load->view('admin/konten/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function sejarah()
     {
-        $this->load->model('sejarah_model', 'sejarah');
         is_logged_out();
         $data['title'] = 'Sejarah';
         $data['user'] = get_user();
-        $data['informasi'] = $this->sejarah->getsejarah();
-        if ($this->input->post('keyword')) {
-            $data['informasi'] = $this->sejarah->cariSejarah();
-        }
+        $data['informasi'] = $this->informasi_m->getInformasi('sejarah');
+
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/sejarah/index', $data);
+        $this->load->view('admin/informasi/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function visi_misi()
     {
-        $this->load->model('visi_misi_model', 'visi_misi');
         is_logged_out();
-        $data['title'] = 'Visi dan Misi';
+        $data['title'] = 'Visi , Misi dan Tujuan';
         $data['user'] = get_user();
+        $data['informasi'] = $this->informasi_m->getAll();
 
-        $data['informasi'] = $this->visi_misi->getVisiMisi();
-        if ($this->input->post('keyword')) {
-            $data['informasi'] = $this->visi_misi->cariVisiMisi();
-        }
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/visi_misi/index', $data);
+        $this->load->view('admin/informasi/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function pengelola()
     {
-        $this->load->model('pengelola_model', 'pengelola');
         $data['title'] = 'Pengelola';
         $data['user'] = get_user();
-        $data['informasi'] = $this->pengelola->getPengelola();
-        if ($this->input->post('keyword')) {
-            $data['informasi'] = $this->pengelola->cariPengelola();
-        }
+        $data['informasi'] = $this->informasi_m->getInformasi('pengelola');
+
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/pengelola/index', $data);
+        $this->load->view('admin/informasi/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function pusat_studi()
     {
-        $this->load->model('pusat_studi_model', 'pusat_studi');
         is_logged_out();
         $data['title'] = 'Pusat Studi';
         $data['user'] = get_user();
-        $data['informasi'] = $this->pusat_studi->getPusat_Studi();
-        if ($this->input->post('keyword')) {
-            $data['informasi'] = $this->pusat_studi->cariPusat_Studi();
-        }
+        $data['informasi'] = $this->informasi_m->getInformasi('pusat_studi');
+
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/pusat_studi/index', $data);
+        $this->load->view('admin/informasi/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function tokoh_pengelola()
     {
-        $this->load->model('tokoh_pengelola_model', 'tokoh');
         is_logged_out();
         $data['title'] = 'Tokoh Pengelola';
         $data['user'] = get_user();
+        $kategori = 'pengelola';
 
         $config['base_url'] = 'http://localhost/ci3-test/admin/tokoh_pengelola';
-        $config['total_rows'] = $this->tokoh->countAllTokoh();
+        $config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
         $config['per_page'] = 5;
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['tokoh'] = $this->tokoh->gettokohPage($config['per_page'], $data['start']);
+
+        $data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
         if ($this->input->post('keyword')) {
             $data['tokoh'] = $this->tokoh->caritokoh();
         }
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/tokoh_pengelola/index', $data);
+        $this->load->view('admin/tokoh/index', $data);
         $this->load->view('temp_admin/footer');
     }
 
     public function tokoh_pusat_studi()
     {
-        $this->load->model('tokoh_pusat_studi_model', 'tokoh');
         is_logged_out();
         $data['title'] = 'Tokoh Pusat Studi';
         $data['user'] = get_user();
+        $kategori = 'pusat_studi';
 
         $config['base_url'] = 'http://localhost/ci3-test/tokoh_pusat_studi';
-        $config['total_rows'] = $this->tokoh->countAllTokoh();
+        $config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
         $config['per_page'] = 5;
         $this->pagination->initialize($config);
 
         $data['start'] = $this->uri->segment(3);
-        $data['tokoh'] = $this->tokoh->gettokohPage($config['per_page'], $data['start']);
+        $data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
         if ($this->input->post('keyword')) {
             $data['tokoh'] = $this->tokoh->caritokoh();
         }
         $this->load->view('temp_admin/header', $data);
         $this->load->view('temp_admin/sidebar', $data);
-        $this->load->view('admin/tokoh_pusat_studi/index', $data);
+        $this->load->view('admin/tokoh/index', $data);
         $this->load->view('temp_admin/footer');
     }
 

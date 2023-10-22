@@ -6,23 +6,24 @@ class pengunjung extends CI_Controller
 	{
 		parent::__construct();
 		is_logged_out();
+		$this->load->model('tokoh_m');
+		$this->load->model('informasi_m');
+		$this->load->model('konten_m');
 	}
 
 	public function index()
 	{
-		$this->load->model('berita_model', 'berita');
 		$data['title'] = 'Beranda';
+		$kategori = 'berita';
 
 		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/index';
-		$config['total_rows'] = $this->berita->countAllBerita();
+		$config['total_rows'] = $this->konten_m->countByKategori($kategori);
 		$config['per_page'] = 4;
 		$this->pagination->initialize($config);
 
 		$data['start'] = $this->uri->segment(3);
-		$data['konten'] = $this->berita->getBeritaPage($config['per_page'], $data['start']);
-
-		$this->load->model('konten_model', 'konten');
-		$data['konten_lain'] = $this->konten->getKonten(5);
+		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
+		$data['konten_lain'] = $this->konten_m->getKonten(5);
 
 		$this->load->view('temp_pengunjung/header', $data);
 		$this->load->view('pengunjung/index', $data);
@@ -31,77 +32,76 @@ class pengunjung extends CI_Controller
 
 	public function berita()
 	{
-		$this->load->model('berita_model', 'berita');
 		$data['title'] = 'Berita';
+		$kategori = 'berita';
 
 		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/berita';
-		$config['total_rows'] = $this->berita->countAllBerita();
+		$config['total_rows'] = $this->konten_m->countByKategori($kategori);
 		$config['per_page'] = 10;
 		$this->pagination->initialize($config);
 
 		$data['start'] = $this->uri->segment(3);
-		$data['konten'] = $this->berita->getBeritaPage($config['per_page'], $data['start']);
+		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
 		$this->load->view('temp_pengunjung/header', $data);
-		$this->load->view('pengunjung/berita/berita', $data);
+		$this->load->view('pengunjung/konten/index', $data);
 		$this->load->view('temp_pengunjung/footer');
 	}
 
 	public function pengumuman()
 	{
-		$this->load->model('pengumuman_model', 'pengumuman');
 		$data['title'] = 'Pengumuman';
+		$kategori = 'pengumuman';
 
 		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pengumuman';
-		$config['total_rows'] = $this->pengumuman->countAllPengumuman();
+		$config['total_rows'] = $this->konten_m->countByKategori($kategori);
 		$config['per_page'] = 10;
 		$this->pagination->initialize($config);
 
 		$data['start'] = $this->uri->segment(3);
-		$data['konten'] = $this->pengumuman->getPengumumanPage($config['per_page'], $data['start']);
+		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
 		$this->load->view('temp_pengunjung/header', $data);
-		$this->load->view('pengunjung/pengumuman/pengumuman', $data);
+		$this->load->view('pengunjung/konten/index', $data);
 		$this->load->view('temp_pengunjung/footer');
 	}
 
 	public function pelatihan()
 	{
-		$this->load->model('pelatihan_model', 'pelatihan');
 		$data['title'] = 'Pelatihan Dosen';
+		$kategori = 'pelatihan';
 
 		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pelatihan';
-		$config['total_rows'] = $this->pelatihan->countAllPelatihan();
+		$config['total_rows'] = $this->konten_m->countByKategori($kategori);
 		$config['per_page'] = 10;
 		$this->pagination->initialize($config);
 
 		$data['start'] = $this->uri->segment(3);
-		$data['konten'] = $this->pelatihan->getPelatihanPage($config['per_page'], $data['start']);
+		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
 		$this->load->view('temp_pengunjung/header', $data);
-		$this->load->view('pengunjung/pelatihan/pelatihan', $data);
+		$this->load->view('pengunjung/konten/index', $data);
 		$this->load->view('temp_pengunjung/footer');
 	}
 
 	public function benchmarking()
 	{
-		$this->load->model('benchmarking_model', 'benchmarking');
 		$data['title'] = 'Benchmarking';
+		$kategori = 'benchmarking';
 
 		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/benchmarking';
-		$config['total_rows'] = $this->benchmarking->countAllBenchmarking();
+		$config['total_rows'] = $this->konten_m->countByKategori($kategori);
 		$config['per_page'] = 10;
 		$this->pagination->initialize($config);
 
 		$data['start'] = $this->uri->segment(3);
-		$data['konten'] = $this->benchmarking->getBenchmarkingPage($config['per_page'], $data['start']);
+		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
 		$this->load->view('temp_pengunjung/header', $data);
-		$this->load->view('pengunjung/benchmarking/benchmarking', $data);
+		$this->load->view('pengunjung/konten/index', $data);
 		$this->load->view('temp_pengunjung/footer');
 	}
 
 	public function sejarah()
 	{
-		$this->load->model('sejarah_model', 'sejarah');
 		$data['title'] = 'Sejarah';
-		$data['informasi'] = $this->sejarah->getSejarah();
+		$data['informasi'] = $this->informasi_m->getInformasi('sejarah');
 		$this->load->view('temp_pengunjung/header', $data);
 		$this->load->view('pengunjung/sejarah', $data);
 		$this->load->view('temp_pengunjung/footer');
@@ -109,11 +109,10 @@ class pengunjung extends CI_Controller
 
 	public function visi_misi()
 	{
-		$this->load->model('visi_misi_model', 'visi_misi');
 		$data['title'] = 'Visi dan Misi';
-		$data['visi'] = $this->visi_misi->getVisi();
-		$data['misi'] = $this->visi_misi->getMisi();
-		$data['tujuan'] = $this->visi_misi->getTujuan();
+		$data['visi'] = $this->informasi_m->getInformasi('visi');
+		$data['misi'] = $this->informasi_m->getInformasi('misi');
+		$data['tujuan'] = $this->informasi_m->getInformasi('tujuan');
 		$this->load->view('temp_pengunjung/header', $data);
 		$this->load->view('pengunjung/visi_misi', $data);
 		$this->load->view('temp_pengunjung/footer');
@@ -121,9 +120,18 @@ class pengunjung extends CI_Controller
 
 	public function pengelola()
 	{
-		$this->load->model('pengelola_model', 'pengelola');
 		$data['title'] = 'Struktur Organisasi';
-		$data['informasi'] = $this->pengelola->getpengelola();
+		$kategori = 'pengelola';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pengelola';
+		$config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
+		$data['informasi'] = $this->informasi_m->getInformasi('pengelola');
 		$this->load->view('temp_pengunjung/header', $data);
 		$this->load->view('pengunjung/pengelola', $data);
 		$this->load->view('temp_pengunjung/footer');
@@ -131,11 +139,20 @@ class pengunjung extends CI_Controller
 
 	public function pusat_studi()
 	{
-		$this->load->model('pusat_studi_model', 'pusat_studi');
 		$data['title'] = 'Pusat Studi';
-		$data['informasi'] = $this->pusat_studi->getPusat_Studi();
+		$kategori = 'pusat_studi';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pengelola';
+		$config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
+		$data['informasi'] = $this->informasi_m->getInformasi($kategori);
 		$this->load->view('temp_pengunjung/header', $data);
-		$this->load->view('pengunjung/pusat_studi', $data);
+		$this->load->view('pengunjung/pengelola', $data);
 		$this->load->view('temp_pengunjung/footer');
 	}
 

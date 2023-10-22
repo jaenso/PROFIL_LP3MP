@@ -1,9 +1,9 @@
 <section class="isi-konten">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-9 border border-5 px-5">
-                <?php foreach ($konten as $ktn) : ?>
-                    <h1><?= $ktn->judul ?></h1>
+            <div class="col-9 px-5">
+                <?php foreach ($konten as $bmk) : ?>
+                    <h1><?= $bmk->judul ?></h1>
                     <div class="row identitas">
                         <div class="col-3">
                             <h3>Posted By <span class="d-block">SATUAN PENJAMINAN MUTU UM</span></h3>
@@ -12,85 +12,32 @@
                             <h3>Categories <span class="d-block">Berita</span></h3>
                         </div>
                         <?php
-                        $tanggal = date('d-m-Y', strtotime($ktn->tanggal));
+                        $tanggal = date('d-m-Y', strtotime($bmk->tanggal));
                         $tanggalAkhir = date('d F Y', strtotime($tanggal));
                         ?>
                         <div class="col-2">
                             <h3>Date <span class="d-block"><?= $tanggalAkhir ?></span></h3>
                         </div>
                     </div>
-                    <?php if (empty($ktn->gambar) || !file_exists('uploads/' . $ktn->gambar)) {
+                    <?php if (empty($bmk->gambar) || !file_exists('uploads/' . $bmk->gambar)) {
                         echo ""; ?>
                     <?php } else { ?>
-                        <img class="bingkai-konten" src="<?= base_url('uploads/' . $ktn->gambar); ?>" />
+                        <img class="bingkai-konten" src="<?= base_url('uploads/' . $bmk->gambar); ?>" />
                     <?php } ?>
-                    <p><?= $ktn->isi ?></p>
+                    <p><?= $bmk->isi ?></p>
                 <?php endforeach; ?>
-                <style>
-                    .berita-slide .card {
-                        padding: 20px 0;
-                        width: 50vh;
-                        overflow: hidden;
-                        border: none;
-                    }
-
-                    .berita-slide .card .card-img-top {
-                        width: 100%;
-                        height: 200px;
-                        object-fit: cover;
-                        display: block;
-                    }
-
-                    .berita-slide h2 {
-                        text-align: center;
-                        font-size: 1.8rem;
-                        font-weight: 600;
-                    }
-
-                    .berita-slide .card-body h2 {
-                        font-size: 1.1rem;
-                        font-weight: 600;
-                        text-align: start;
-                        color: var(--dark-color);
-                    }
-
-                    .berita-slide p {
-                        font-size: 1rem;
-                    }
-                </style>
-                <section class="berita-slide" id="berita-slide">
-                    <div class="container-fluid">
-                        <h2>Anda mungkin juga suka..</h2>
-                        <div class="swiper berita-swiper">
-                            <div class="swiper-wrapper">
-                                <?php foreach ($konten_lain as $kl) : ?>
-                                    <div class="swiper-slide">
-                                        <div class="card">
-                                            <a href="<?= base_url(); ?>berita/detail/<?= $kl->id_konten; ?>">
-                                                <img src="<?= base_url('uploads/' . $kl->gambar) ?>" class="card-img-top rounded mb-3" alt="Gambar 1" />
-                                            </a>
-                                            <div class="card-body">
-                                                <h2><?= $kl->judul ?></h2>
-                                                <?php
-                                                $isi = $kl->isi;
-                                                $max_length = 80;
-                                                if (strlen($isi) > $max_length) {
-                                                    $isi = substr($isi, 0, $max_length) . '...';
-                                                }
-                                                ?>
-                                                <p><?= htmlspecialchars_decode($isi) ?></p>
-                                            </div>
-                                        </div>
+                <section class="konten-lain">
+                    <div class="row">
+                        <h1>Berita Lainnya</h1>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <a href="index.html">
+                                    <img class="bingkai-konten-lain" src="images/lembaga-2.png" />
+                                    <div class="card-body">
+                                        <h2>BPBD DAN UPR SUSUN DOKUMEN KAJIAN RESIKO BENCANA</h2>
+                                        <p>30 Desember 2023</p>
                                     </div>
-                                <?php endforeach ?>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-end gap-3">
-                                <button class="btn btn-light d-flex align-items-center justify-content-center btn-prev">
-                                    <i class="bx bx-left-arrow-alt"></i>
-                                </button>
-                                <button class="btn btn-light d-flex align-items-center justify-content-center btn-next">
-                                    <i class="bx bx-right-arrow-alt"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

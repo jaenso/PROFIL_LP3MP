@@ -24,43 +24,35 @@
 						font-size: 1rem;
 					}
 				</style>
-				<div class="tokoh">
-					<h2>1. Pusat Kajian Tanaman Obat dan Tradisional</h2>
-					<div class="deskripsi-tokoh">
-						<img class="bingkai-pengelola" src="<?= base_url(); ?>assets_pengunjung/images/pengelola.png" />
-						<p>Answer to Question 1 goes here.</p>
-						<table class="table table-borderless w-auto">
-							<tbody>
-								<tr>
-									<td>Nama</td>
-									<td>: dr. Nawan</td>
-								</tr>
-								<tr>
-									<td>NIP</td>
-									<td>: 923123123121</td>
-								</tr>
-								<tr>
-									<td>Pangkat/Gol.</td>
-									<td>: III-C</td>
-								</tr>
-								<tr>
-									<td>Email Resmi</td>
-									<td>: nawan@lppm.upr.ac.id</td>
-								</tr>
-								<tr>
-									<td>Penjelasan Pusat Studi</td>
-									<td>
-										: Lorem ipsum dolor sit amet consectetur adipisicing
-										elit. Praesentium perferendis hic facere placeat
-										tenetur id doloribus tempora explicabo velit soluta?
-										Maxime modi harum accusantium delectus consequuntur
-										suscipit velit similique unde?
-									</td>
-								</tr>
-							</tbody>
-						</table>
+
+				<?php foreach ($tokoh as $tkh) : ?>
+					<div class="tokoh">
+						<h2><?= $tkh->jabatan ?></h2>
+						<div class="deskripsi-tokoh">
+							<img class="bingkai-pengelola" src="<?= base_url('uploads/' . $tkh->gambar) ?>" />
+							<table class="table table-borderless w-auto">
+								<tbody>
+									<tr>
+										<td>Nama</td>
+										<td>:</td>
+										<td><?= $tkh->nama ?></td>
+									</tr>
+									<tr>
+										<td>NIP</td>
+										<td>:</td>
+										<td><?= $tkh->nip ?></td>
+									</tr>
+									<tr>
+										<td>Jabatan</td>
+										<td>:</td>
+										<td><?= $tkh->jabatan ?></td>
+									</tr>
+									<tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
-				</div>
+				<?php endforeach ?>
 			</div>
 		</div>
 	</div>

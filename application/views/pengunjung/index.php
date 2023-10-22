@@ -8,11 +8,9 @@
             <div class="card">
               <img class="bingkai-lembaga" src="<?= base_url(); ?>assets_pengunjung/images/lembaga.png" />
               <div class="card-body">
-                <h2>Pusat Penjaminan Mutu</h2>
+                <h2>Pusat Manajemen Mutu</h2>
                 <p>
-                  Pusat Penjaminan Mutu merupakan divisi yang bertugas
-                  menyusun, melaksanakan, dan mengkoordinasikan penjaminan
-                  mutu internal baik akademik maupun non-akademik.
+                  Deskripsi Lembaga
                 </p>
               </div>
             </div>
@@ -23,9 +21,9 @@
               <img class="bingkai-lembaga" src="<?= base_url(); ?>assets_pengunjung/images/lembaga-2.png" />
 
               <div class="card-body">
-                <h2>Pusat MKU dan Kewirausahaan</h2>
+                <h2>Pusat Pengelolaan Akreditasi</h2>
                 <p>
-                  Pusat Mata Kuliah Umum (MKU) dan Kewirausahaan merupakandivisi yang bertugas melaksanakan dan mengkoordinasipengembangan mutu pembelajaran MKU dan kewirausahaan.
+                  Deskripsi Lembaga
                 </p>
               </div>
             </div>
@@ -37,11 +35,9 @@
                 <img class="bingkai-lembaga" src="<?= base_url(); ?>assets_pengunjung/images/lembaga.png" />
               </div>
               <div class="card-body">
-                <h2>Pusat Pengembangan Pembelajaran</h2>
+                <h2>Pusat Pelatihan dan Pengembangan Kompetensi SDM</h2>
                 <p>
-                  Pusat Pengembangan Pembelajaran merupakan divisi yang bertugas melaksanakan dan mengkoordinasikan audit, penilaian
-                  mutu internal pembelajaran, dan pelatihan yang mengacu pada
-                  Standar Pendidikan. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, quos nihil quasi molestias quo accusantium enim illo pariatur mollitia provident tenetur corrupti ut placeat soluta molestiae assumenda impedit possimus nesciunt nulla sunt atque aut nostrum iusto. Non, possimus atque aperiam ullam cupiditate cum ipsa sed numquam vitae suscipit rem voluptatum natus. Maxime velit illum, deleniti nam sed saepe. Fugiat ut iure ipsam accusamus saepe provident nulla nostrum sint ipsum debitis!
+                  Deskripsi Lembaga
                 </p>
               </div>
             </div>
@@ -52,12 +48,24 @@
               <img class="bingkai-lembaga" src="<?= base_url(); ?>assets_pengunjung/images/lembaga.png" />
               <div class="card-body">
                 <h2>
-                  Pusat Merdeka Belajar - Kampus Merdeka
+                  Pusat Pengelolaan MBKM dan Kurikulum
                 </h2>
                 <p>
-                  Pusat Merdeka Belajar - Kampus Merdeka (MB-KM) merupakan
-                  divisi yang bertugas melaksanakan, mengkoordinasikan, dan
-                  memonitor 8 kegiatan MB-KM.
+                  Deskripsi Lembaga
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="card">
+              <img class="bingkai-lembaga" src="<?= base_url(); ?>assets_pengunjung/images/lembaga.png" />
+              <div class="card-body">
+                <h2>
+                  Pusat Pangkalan Data dan Sistem Informasi Mutu Akademik
+                </h2>
+                <p>
+                  Deskripsi Lembaga
                 </p>
               </div>
             </div>
