@@ -33,24 +33,20 @@ class akun extends CI_Controller
         $user = $this->db->get_where('user', ['username' => $username])->row_array();
 
         if ($user) {
-            if ($user['is_active'] == 1) {
-                if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'username' => $user['username'],
-                        'id_role' => $user['id_role']
-                    ];
-                    $this->session->set_userdata($data);
-                    if ($user['id_role'] == 1) {
-                        redirect('admin');
-                    } else {
-                        redirect('pengunjung');
-                    }
+            if (password_verify($password, $user['password'])) {
+                $data = [
+                    'username' => $user['username'],
+                    'id_role' => $user['id_role'],
+                    'status' => $user['status'],
+                ];
+                $this->session->set_userdata($data);
+                if ($user['id_role'] == 1) {
+                    redirect('admin');
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password yang dimasukkan tidak sesuai</div>');
-                    redirect('akun');
+                    redirect('pengunjung');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun sudah lama tidak aktif. Silahkan buat akun</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password yang dimasukkan tidak sesuai</div>');
                 redirect('akun');
             }
         } else {

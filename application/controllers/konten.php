@@ -152,15 +152,7 @@ class konten extends CI_Controller
 
             $this->konten_m->ubah($id, $data);
             $this->session->set_flashdata('flash', 'diubah');
-            if ($kategori == 'berita') {
-                redirect('admin/berita');
-            } elseif ($kategori == 'pengumuman') {
-                redirect('admin/pengumuman');
-            } elseif ($kategori == 'pelatihan') {
-                redirect('admin/pelatihan');
-            } elseif ($kategori == 'benchmarking') {
-                redirect('admin/benchmarking');
-            }
+            redirect('admin/' . $kategori);
         }
     }
 
