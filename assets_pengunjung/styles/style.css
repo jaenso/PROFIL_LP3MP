@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800 &family=Roboto:wght@300;400;700;900&display=swap");:root {
     --dark-color: #03001c;
     --white-color: #ffffff;
+    --primary-color: #075391;
 }
 
 * {
@@ -11,14 +12,6 @@
 
 section {
     background-color: var(--white-color);
-    padding: 30px;
-}
-
-.informasi,
-.konten,
-.isi-konten,
-.konten-lain {
-    padding-top: 10vh;
 }
 
 .informasi p {
@@ -32,19 +25,12 @@ i {
 }
 
 /* UTILITIES */
-.text-dark {
-    color: var(--dark-color);
+.main-header {
+    background: var(--white-color);
 }
 
-.text-white {
-    color: var(--white-color);
-}
-
-.main-header,
 .main-footer {
-    /* background: rgb(9,64,121); */
-    background: #075391;
-    /* background: linear-gradient(90deg, rgba(9,64,121,1) 20%, rgba(0,171,255,1) 100%); */
+    background: var(--primary-color);
 }
 
 h1 {
@@ -56,8 +42,14 @@ h1 {
 }
 
 /* HEADER */
-.navbar img.main-logo {
-    max-width: 60px;
+.nav-item img {
+    max-width: 50px;
+    margin-right: 20px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
 }
 
 .navbar h1 {
@@ -77,16 +69,12 @@ h1 {
 }
 
 .navbar li a.nav-link:hover {
-    color: var(--white-color);
-}
-
-.navbar .dropdown:hover .dropdown-menu {
-    display: block;
+    color: var(--primary-color);
 }
 
 /* SIDEBAR */
 .sidebar h2 {
-    border-left: 5px solid #007bff;
+    border-left: 5px solid var(--primary-color);
     padding-left: 10px;
     font-size: 1.3rem;
     font-weight: bold;
@@ -97,6 +85,28 @@ h1 {
     padding-left: 20px;
     color: var(--dark-color);
     font-size: 0.9rem;
+}
+
+.banner {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+.banner-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.banner-content h1 {
+    font-size: 15px;
+    margin: 0;
 }
 
 /* RECENT-POST */
@@ -112,19 +122,14 @@ h1 {
 }
 
 /* OUTER LINK */
-.outer-link {
-    margin-top: 8vh;
-}
-
 .outer-link h1 {
     font-size: 0.9rem;
     text-align: start;
     color: #555;
 }
 .outer-link .bingkai-format {
-    width: 9vh;
-    height: 9vh;
-    margin-right: 5px;
+    width: 11vh;
+    height: 8vh;
 }
 
 .outer-link a {
@@ -142,7 +147,6 @@ h1 {
     max-width: 85vh;
     max-height: 75vh;
     overflow: hidden;
-    border-color: var(--dark-color);
 }
 
 .lembaga .card .bingkai-lembaga {
@@ -171,9 +175,11 @@ h1 {
 }
 
 /* BERITA-UTAMA */
+.berita-utama a {
+    text-decoration: none;
+}
 .berita-utama .card {
     max-width: 70vh;
-    border-color: var(--dark-color);
 }
 
 .berita-utama .card .bingkai-berita-utama {
@@ -183,7 +189,7 @@ h1 {
 }
 
 .berita-utama .card h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     padding: 10px 0;
     color: var(--dark-color);
@@ -258,11 +264,11 @@ h1 {
 .konten .isi a {
     font-size: 1rem;
     color: var(--dark-color);
-    background-color: #216599;
+    background-color: var(--primary-color);
 }
 
 .konten .isi a:hover {
-    background-color: #60a0d1;
+    background-color: var(--primary-color);
     color: var(--white-color);
 }
 

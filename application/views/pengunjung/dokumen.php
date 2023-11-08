@@ -1,5 +1,5 @@
 <section class="informasi">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row justify-content-center main-peraturan-panduan">
 			<div class="col-10">
 				<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">

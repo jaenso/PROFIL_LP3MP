@@ -1,5 +1,5 @@
 <section class="informasi">
-	<div class="pengelola container-fluid">
+	<div class="pengelola container">
 		<div class="row justify-content-center">
 			<div class="col-10">
 				<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">

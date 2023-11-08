@@ -71,11 +71,6 @@
   });
 </script>
 <script src="<?= base_url(); ?>assets_pengunjung/vendors/dist/NavOnScroll.min.js"></script>
-<script>
-  hide_on_scroll({
-    nav_id: "scrollNavbar",
-  });
-</script>
 </body>
 
 </html>

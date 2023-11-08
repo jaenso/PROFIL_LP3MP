@@ -6,6 +6,7 @@ class konten extends CI_Controller
     {
         parent::__construct();
         $this->load->model('konten_m');
+        $this->load->model('pengaturan_website_model', 'wbs');
         $this->load->library('form_validation');
     }
 
@@ -168,6 +169,7 @@ class konten extends CI_Controller
     public function detail($id)
     {
         $data['title'] = 'Konten Berita';
+        $data['website'] = $this->wbs->getWebsite();
         $data['konten_lain'] = $this->konten_m->getAllKonten();
         $data['konten'] = $this->konten_m->getDetailKonten($id);
         $this->load->view('temp_pengunjung/header', $data);

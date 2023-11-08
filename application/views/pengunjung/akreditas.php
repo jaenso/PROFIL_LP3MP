@@ -1,5 +1,5 @@
 <section class="informasi">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-10">
                 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
@@ -77,8 +77,6 @@
                                     <th>No. SK</th>
                                     <th>Peringkat</th>
                                     <th>Tanggal Kadaluarsa</th>
-                                    <th>Status Kadaluarsa</th>
-                                    <th>Keterangan</th>
                                     <th>Link Download</th>
                                 </tr>
                             </thead>
@@ -93,8 +91,6 @@
                                         <td><?= $dkm->no_sk ?></td>
                                         <td><?= $dkm->peringkat ?></td>
                                         <td><?= $dkm->tgl_kadaluarsa ?></td>
-                                        <td><?= $dkm->status ?></td>
-                                        <td><?= $dkm->keterangan ?></td>
                                         <td><a href="<?= $dkm->link ?>">Download</a></td>
                                     </tr>
                                 </tbody>

@@ -72,14 +72,6 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/filterKonten" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Filter Konten
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="<?= base_url(); ?>admin/berita" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>

@@ -1,8 +1,8 @@
 <section class="konten">
-  <div class="container-fluid">
+  <div class="container">
+    <h1><?= $title ?></h1>
     <div class="row">
       <div class="col-9">
-        <h1><?= $title ?></h1>
         <div class="row justify-content-center">
           <?php foreach ($konten as $ktn) : ?>
             <div class="col-10">
@@ -66,11 +66,11 @@
             </form>
           </div>
           <div class="col-10 mt-3">
-            <h2>CATEGORIES</h2>
+            <h2>Kategori</h2>
             <div class="row">
-              <a href="<?= base_url(); ?>pengunjung/berita">BERITA</a>
-              <a href="<?= base_url(); ?>pengunjung/pengumuman">PENGUMUMAN</a>
-              <a href="<?= base_url(); ?>pengunjung/dokumen">DOKUMEN</a>
+              <a href="<?= base_url(); ?>pengunjung/benchmarking">Benchmarking</a>
+              <a href="<?= base_url(); ?>pengunjung/pelatihan">Pelatihan Dosen</a>
+              <a href="<?= base_url(); ?>#">AMI</a>
             </div>
           </div>
         </div>
