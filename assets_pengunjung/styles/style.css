@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800 &family=Roboto:wght@300;400;700;900&display=swap");:root {
     --dark-color: #03001c;
     --white-color: #ffffff;
-    --primary-color: #075391;
+    /* --primary-color: #075391; */
+    --primary-color: #23396c;
 }
 
 * {
@@ -12,6 +13,13 @@
 
 section {
     background-color: var(--white-color);
+}
+
+.informasi h1 {
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    color: var(--primary-color);
 }
 
 .informasi p {
@@ -31,14 +39,6 @@ i {
 
 .main-footer {
     background: var(--primary-color);
-}
-
-h1 {
-    text-align: center;
-    font-weight: bolder;
-    text-transform: uppercase;
-    font-size: 2.2rem;
-    padding: 10px 0;
 }
 
 /* HEADER */

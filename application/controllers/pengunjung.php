@@ -5,7 +5,6 @@ class pengunjung extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		is_logged_out();
 		$this->load->model('tokoh_m');
 		$this->load->model('informasi_m');
 		$this->load->model('konten_m');

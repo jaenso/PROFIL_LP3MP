@@ -2,17 +2,6 @@
 	<div class="container">
 		<div class="row justify-content-center main-peraturan-panduan">
 			<div class="col-10">
-				<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">
-							<i class="bx bxs-home"></i><a href="<?= base_url(); ?>pengunjung">Home</a>
-						</li>
-						<li class="breadcrumb-item active" aria-current="page">
-							<?= $title ?>
-						</li>
-					</ol>
-				</nav>
-
 				<h1>Dokumen</h1>
 				<div class="row justify-content-center">
 					<?php foreach ($dokumen as $dkm) : ?>

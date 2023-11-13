@@ -16,7 +16,7 @@ class akun extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $data['tittle'] = 'Login Akun';
+            $data['title'] = 'Login Akun';
             $this->load->view('temp_admin/header', $data);
             $this->load->view('admin/akun/login');
             $this->load->view('temp_admin/footer');
@@ -42,8 +42,6 @@ class akun extends CI_Controller
                 $this->session->set_userdata($data);
                 if ($user['id_role'] == 1) {
                     redirect('admin');
-                } else {
-                    redirect('pengunjung');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password yang dimasukkan tidak sesuai</div>');

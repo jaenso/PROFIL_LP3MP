@@ -1,13 +1,13 @@
 <section class="banner" style="background-image: url('<?= base_url('uploads/' . $website->background) ?>');">
   <div class="banner-content">
-    <h1>Selamat Datang di Website Kami</h1>
+    <h1><?= $website->deskripsi ?></h1>
   </div>
 </section>
 <section class="lembaga">
   <div class="container">
     <h1>Lembaga LP3MP</h1>
     <div class="row pt-4">
-      <div class="col-10">
+      <div class="col-12">
         <div class="row justify-content-evenly">
           <div class="col-4">
             <div class="card">
@@ -73,35 +73,34 @@
           </div>
         </div>
       </div>
-      <div class="col-2 outer-link">
-        <div class="row">
-          <div class="col-10 mx-5">
-            <h1>Outer Links</h1>
-            <div class="row">
-              <div class="col-12 mb-2">
-                <img src="<?= base_url(); ?>assets_pengunjung/outer-link/ban-pt.png" class="bingkai-format">
-              </div>
-              <div class="col-12 mb-2">
-                <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-sama.png" class="bingkai-format">
-              </div>
-              <div class="col-12 mb-2">
-                <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-dik.png" class="bingkai-format">
-              </div>
-              <div class="col-12 mb-2">
-                <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-emba.png" class="bingkai-format">
-              </div>
-              <div class="col-12 mb-2">
-                <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-infokom.png" class="bingkai-format">
-              </div>
-              <div class="col-12 mb-2">
-                <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-ptkes.png" class="bingkai-format">
-              </div>
-              <div class="col-12 mb-2">
-                <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-teknik.png" class="bingkai-format">
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
+</section>
+
+<section class="outer-link">
+  <div class="container">
+    <h1>Outer Links</h1>
+    <div class="row">
+      <div class="col-2">
+        <img src="<?= base_url(); ?>assets_pengunjung/outer-link/ban-pt.png" class="bingkai-format">
+      </div>
+      <div class="col-2">
+        <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-sama.png" class="bingkai-format">
+      </div>
+      <div class="col-2">
+        <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-dik.png" class="bingkai-format">
+      </div>
+      <div class="col-2">
+        <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-emba.png" class="bingkai-format">
+      </div>
+      <div class="col-2">
+        <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-infokom.png" class="bingkai-format">
+      </div>
+      <div class="col-2">
+        <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-ptkes.png" class="bingkai-format">
+      </div>
+      <div class="col-2">
+        <img src="<?= base_url(); ?>assets_pengunjung/outer-link/lam-teknik.png" class="bingkai-format">
       </div>
     </div>
   </div>

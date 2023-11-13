@@ -54,8 +54,8 @@
       nextEl: ".btn-next",
     },
     autoplay: {
-      delay: 4000, // Atur delay dalam milidetik (misalnya 3000ms atau 3 detik)
-      disableOnInteraction: false, // Biarkan autoplay berlanjut bahkan setelah interaksi pengguna
+      delay: 4000,
+      disableOnInteraction: false,
     },
     speed: 1000,
     breakpoint: {
@@ -70,7 +70,6 @@
     },
   });
 </script>
-<script src="<?= base_url(); ?>assets_pengunjung/vendors/dist/NavOnScroll.min.js"></script>
 </body>
 
 </html>
