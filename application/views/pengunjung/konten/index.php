@@ -1,11 +1,11 @@
 <section class="konten">
   <div class="container">
-    <div class="row">
-      <div class="col-9">
+    <div class="row justify-content-center">
+      <div class="col-10">
         <h1><?= $title ?></h1>
-        <div class="row justify-content-center">
+        <div class="row">
           <?php foreach ($konten as $ktn) : ?>
-            <div class="col-10">
+            <div class="col-8">
               <div class="card mt-5">
                 <?php if (empty($ktn->gambar) || !file_exists('uploads/' . $ktn->gambar)) {
                   echo ""; ?>
@@ -50,7 +50,7 @@
           <?= $this->pagination->create_links(); ?>
         </div>
       </div>
-      <div class="col-3 sidebar">
+      <div class="col-2 sidebar">
         <div class="row">
           <div class="col-10 mt-3">
             <h2>Kategori</h2>

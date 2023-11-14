@@ -1,11 +1,11 @@
 <section class="informasi">
 	<div class="container">
-		<div class="row justify-content-center main-peraturan-panduan">
+		<div class="row justify-content-center">
 			<div class="col-10">
 				<h1>Dokumen</h1>
 				<div class="row justify-content-center">
 					<?php foreach ($dokumen as $dkm) : ?>
-						<div class="col-10 dokumen mb-4">
+						<div class="col-12 dokumen mb-4">
 							<div class="d-flex">
 								<img src="<?= base_url('assets_pengunjung/images/' . $dkm->format); ?>" class="bingkai-format">
 								<div>

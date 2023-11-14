@@ -208,15 +208,8 @@ class pengunjung extends CI_Controller
 	{
 		$this->load->model('dok_sertifikat_model', 'dok_sertifikat');
 		$data['title'] = 'Sertifikat Akreditasi';
-
-		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/akreditas';
-		$config['total_rows'] = $this->dok_sertifikat->countAllDokumen();
-		$config['per_page'] = 15;
-		$this->pagination->initialize($config);
-
-		$data['start'] = $this->uri->segment(3);
 		$data['website'] = $this->wbs->getWebsite();
-		$data['dokumen'] = $this->dok_sertifikat->getDokumenPage($config['per_page'], $data['start']);
+		$data['dokumen'] = $this->dok_sertifikat->getDokumen();
 		$this->load->view('temp_pengunjung/header', $data);
 		$this->load->view('pengunjung/akreditas', $data);
 		$this->load->view('temp_pengunjung/footer');

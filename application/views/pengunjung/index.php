@@ -23,7 +23,6 @@
           <div class="col-4">
             <div class="card">
               <img class="bingkai-lembaga" src="<?= base_url(); ?>assets_pengunjung/images/lembaga-2.png" />
-
               <div class="card-body">
                 <h2>Pusat Pengelolaan Akreditasi</h2>
                 <p>
@@ -112,43 +111,33 @@
     <div class="row">
       <div class="col-12">
         <div class="row justify-content-evenly">
-          <?php
-          foreach ($konten as $brt) : ?>
+          <?php foreach ($konten as $brt) : ?>
             <div class="col-4 mt-3">
               <div class="card">
-                <img class="bingkai-berita-utama" src="<?= base_url('uploads/' . $brt->gambar); ?>">
-                <div class=" card-body">
-                  <h2><?= $brt->judul ?></h2>
-                  <div class="container d-flex">
-                    <i class="bi bi-calendar pe-2"></i>
-                    <?php
-                    $tanggalAwal = $brt->tanggal;
-                    $tanggalObj = new DateTime($tanggalAwal);
-                    $tanggalHasil = $tanggalObj->format('d F Y');
-                    ?>
-                    <p><?= $tanggalHasil ?></p>
-                  </div>
-                  <a href="<?= base_url(); ?>konten/detail/<?= $brt->id_konten; ?>">
-                    <p>
-                      <?php
-                      $isi = strip_tags($brt->isi);
-                      $max_length = 150;
-
-                      if (strlen($isi) > $max_length) {
-                        $isi = substr($isi, 0, $max_length);
-                        $last_space = strrpos($isi, ' ');
-                        $isi = substr($isi, 0, $last_space);
-                        echo $isi . '... ';
-                      }
-                      ?>
-                    </p>
-                  </a>
-                </div>
+                <a href="<?= base_url(); ?>konten/detail/<?= $brt->id_konten; ?>">
+                  <img class="bingkai-berita-utama" src="<?= base_url('uploads/' . $brt->gambar); ?>">
+                  <div class="card-body">
+                    <h2><?= $brt->judul ?></h2>
+                </a>
+                <p>
+                  <?php
+                  $isi = strip_tags($brt->isi);
+                  $max_length = 150;
+                  if (strlen($isi) > $max_length) {
+                    $isi = substr($isi, 0, $max_length);
+                    $last_space = strrpos($isi, ' ');
+                    $isi = substr($isi, 0, $last_space);
+                    echo $isi . '... ';
+                  }
+                  ?>
+                </p>
               </div>
             </div>
-          <?php endforeach ?>
-          <?= $this->pagination->create_links(); ?>
         </div>
+      <?php endforeach ?>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="<?= base_url('pengunjung/berita') ?>" class="btn btn-outline-info my-3" style="width: 20%;">BERITA UTAMA LAINNYA</a>
       </div>
     </div>
   </div>

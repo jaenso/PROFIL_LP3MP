@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LP3MP | <?= $title ?></title>
-  <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>asset_admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets_pengunjung/vendors/boxicons/css/boxicons.min.css">
   <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets_pengunjung/vendors/bootstrap/css/bootstrap.min.css" />
@@ -18,16 +18,16 @@
 <body>
   <header class="navbar navbar-expand-lg main-header sticky-top">
     <div class="container">
+      <a class="navbar-brand" href="<?= base_url('pengunjung') ?>">
+        <img src="<?= base_url('uploads/' . $website->logo) ?>" alt="">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <img src="<?= base_url('uploads/' . $website->logo) ?>" alt="">
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?= base_url(); ?>pengunjung/index">Home</a>
+            <a href="<?= base_url(); ?>pengunjung/index"><i class="bi bi-house-door-fill"></i></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

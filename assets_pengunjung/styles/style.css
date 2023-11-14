@@ -3,6 +3,7 @@
     --white-color: #ffffff;
     /* --primary-color: #075391; */
     --primary-color: #23396c;
+    --secondary-color: #919cb6;
 }
 
 * {
@@ -11,11 +12,8 @@
     font-family: "Poppins", sans-serif;
 }
 
-section {
-    background-color: var(--white-color);
-}
-
-.informasi h1 {
+.informasi h1,
+.konten h1 {
     font-weight: bolder;
     text-transform: uppercase;
     font-size: 2.2rem;
@@ -42,29 +40,17 @@ i {
 }
 
 /* HEADER */
-.nav-item img {
+.navbar-brand img {
     max-width: 50px;
     margin-right: 20px;
 }
 
-.nav-item {
+.nav-item,
+i,
+.dropdown-menu .dropdown-item {
     display: flex;
     align-items: center;
-}
-
-.navbar h1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.navbar .nav-item .nav-link,
-.dropdown-item {
-    margin: 0 15px;
-    font-size: 1rem;
-}
-
-.navbar .dropdown-item {
-    margin: 15px 0;
+    margin: 0 5px;
     font-size: 1rem;
 }
 
@@ -90,7 +76,7 @@ i {
 .banner {
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,25 +164,31 @@ i {
 .berita-utama a {
     text-decoration: none;
 }
+
 .berita-utama .card {
-    max-width: 70vh;
+    max-width: 40vh;
+    margin: 20px 0;
 }
 
 .berita-utama .card .bingkai-berita-utama {
     width: 100%;
-    height: 250px;
+    height: 30vh;
     object-fit: cover;
 }
 
 .berita-utama .card h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     padding: 10px 0;
+    color: var(--primary-color);
+}
+
+.berita-utama .card h2:hover {
     color: var(--dark-color);
 }
 
 .berita-utama .card p {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 /* BERITA SLIDE */
@@ -308,6 +300,7 @@ span a {
 
 .main-footer p {
     font-size: 0.9rem;
+    color: var(--white-color);
 }
 
 .main-footer ul,
@@ -316,13 +309,12 @@ li a {
     padding-left: 0;
     margin-left: 0;
     text-decoration: none;
-    color: var(--dark-color);
+    color: var(--white-color);
     font-size: 0.9rem;
 }
 
 .main-footer a:hover {
-    color: var(--white-color);
-    font-weight: bold;
+    color: var(--secondary-color);
 }
 
 h3.judul-berita {
