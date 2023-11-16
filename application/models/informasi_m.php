@@ -11,6 +11,15 @@ class informasi_m extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function getInformasiLembaga()
+    {
+        $this->db->select('*')
+            ->from('informasi')
+            ->join('kategori', 'informasi.id_kategori = kategori.id_kategori')
+            ->where("kategori.kategori IN ('pusat_studi', 'akreditasi', 'kompetensi', 'mbkm', 'pangkalan_data')");
+        return $this->db->get()->result();
+    }
+
     public function getInformasi($kategori)
     {
         $this->db->select('*');

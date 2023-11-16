@@ -29,7 +29,7 @@
               <a href="<?= base_url(); ?>dokumen/tambah_dkm_srt" class="btn bg-primary"><i class="fas fa-plus"></i> Buat <?= $title ?></a>
             </div>
 
-            <table class="table table-responsive table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th>No</th>
@@ -45,11 +45,12 @@
                   <th>Aksi</th>
                 </tr>
               </thead>
-              <?php
-              foreach ($dokumen as $dkm) : ?>
-                <tbody>
+              <tbody>
+                <?php
+                $i = 1;
+                foreach ($dokumen as $dkm) : ?>
                   <tr>
-                    <td><?= ++$start; ?></td>
+                    <td><?= $i++; ?></td>
                     <td><?= $dkm->p_studi ?></td>
                     <td><?= $dkm->strata ?></td>
                     <td><?= $dkm->fakultas ?></td>
@@ -68,10 +69,9 @@
                       </a>
                     </td>
                   </tr>
-                </tbody>
-              <?php endforeach ?>
+                <?php endforeach ?>
+              </tbody>
             </table>
-            <?= $this->pagination->create_links(); ?>
           </div>
         </div>
       </div>

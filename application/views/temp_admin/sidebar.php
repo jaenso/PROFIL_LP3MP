@@ -10,29 +10,6 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
       </ul>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-            <i class="fas fa-search"></i>
-          </a>
-          <div class="navbar-search-block">
-            <form class="form-inline">
-              <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" />
-                <div class="input-group-append">
-                  <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                  </button>
-                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </li>
-      </ul>
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <a href="index3.html" class="brand-link">
@@ -50,17 +27,6 @@
           </div>
         </div>
 
-        <div class="form-inline">
-          <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search" />
-            <div class="input-group-append">
-              <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item menu-open">
@@ -72,100 +38,180 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/berita" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-newspaper"></i>
                 <p>
-                  Berita
+                  Konten
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/berita" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Berita</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pengumuman" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengumuman</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pelatihan" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pelatihan Dosen</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/benchmarking" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Benchmarking</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/ami" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>AMI</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/pengumuman" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-building"></i>
                 <p>
-                  Pengumuman
+                  Informasi
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/sejarah" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sejarah</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/visi_misi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Visi, Misi, dan Tujuan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pengelola" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pengelola</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pusat_studi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pusat Manajemen Mutu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/akreditasi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pusat Pengelolaan Akreditasi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/kompetensi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pusat Pelatihan dan Pengembangan
+                      Kompetisi Sumber Daya Manusia</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/mbkm" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pusat Pengelolaan Merdeka Belajar Kampus Merdeka
+                      dan Kurikulum</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/pangkalan_data" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pusat Pangkalan Data dan Sistem
+                      Informasi Mutu Akademik</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/pelatihan" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
                 <p>
-                  Pelatihan Dosen
+                  Tokoh
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/tokoh_pengelola" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tokoh Pengelola</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/tokoh_pusat_studi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tokoh Pusat Manajemen Mutu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/tokoh_akreditasi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pusat Pengelolaan Akreditasi</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/tokoh_kompetensi" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tokoh Pusat Pelatihan dan Pengembangan
+                      Kompetisi Sumber Daya Manusia</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/tokoh_mbkm" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Tokoh Pusat Pengelolaan Merdeka Belajar Kampus Merdeka
+                      dan Kurikulum</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/tokoh_pangkalan_data" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pusat Pangkalan Data dan Sistem
+                      Informasi Mutu Akademik</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/benchmarking" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-file"></i>
                 <p>
-                  Benchmarking
+                  Dokumen
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/sejarah" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Sejarah
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/visi_misi" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Visi, Misi, dan Tujuan
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/pengelola" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Pengelola
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/tokoh_pengelola" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Tokoh Pengelola
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/pusat_studi" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Pusat Studi
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/tokoh_pusat_studi" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Tokoh Pusat Studi
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/dokumen_srt" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Sertifikasi Jurusan
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?= base_url(); ?>admin/dokumen_lp3mp" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>
-                  Dokumen LP3MP
-                </p>
-              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/dokumen_srt" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Sertifikasi Jurusan</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="<?= base_url(); ?>admin/dokumen_lp3mp" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Dokumen LP3MP</p>
+                  </a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="<?= base_url(); ?>admin/pengaturan_website/1" class="nav-link">
@@ -187,5 +233,4 @@
         </nav>
       </div>
     </aside>
-
     <div class="content-wrapper">

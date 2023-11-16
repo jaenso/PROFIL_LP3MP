@@ -15,7 +15,7 @@
             <?php endif; ?>
 
             <a href="<?= base_url(); ?>dokumen/tambah_dkm" class="btn bg-primary"><i class="fas fa-plus"></i> Buat <?= $title ?></a>
-            <table class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th>No</th>
@@ -25,11 +25,12 @@
                   <th>Aksi</th>
                 </tr>
               </thead>
-              <?php
-              foreach ($dokumen as $dkm) : ?>
-                <tbody>
+              <tbody>
+                <?php
+                $i = 1;
+                foreach ($dokumen as $dkm) : ?>
                   <tr>
-                    <td><?= ++$start; ?></td>
+                    <td><?= $i++; ?></td>
                     <td><img height="50px" width="50px" src="<?= base_url('assets_pengunjung/images/' . $dkm->format) ?>"></td>
                     <td><?= $dkm->nama ?></td>
                     <td><?= $dkm->link ?></td>
@@ -42,10 +43,9 @@
                       </a>
                     </td>
                   </tr>
-                </tbody>
-              <?php endforeach ?>
+                <?php endforeach ?>
+              </tbody>
             </table>
-            <?= $this->pagination->create_links(); ?>
           </div>
         </div>
       </div>

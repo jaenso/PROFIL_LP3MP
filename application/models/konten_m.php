@@ -2,22 +2,6 @@
 
 class konten_m extends CI_Model
 {
-    public function getKontenByFilter($tgl_awal, $tgl_akhir)
-    {
-        $this->db->select('*');
-        $this->db->from('konten');
-        $this->db->where('tanggal >=', $tgl_awal);
-        $this->db->where('tanggal <=', $tgl_akhir);
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        } else {
-            return array();
-        }
-    }
-
     public function countByKategori($kategori)
     {
         $this->db->from('konten');
@@ -36,6 +20,16 @@ class konten_m extends CI_Model
         return $this->db->get()->result();
     }
 
+
+    public function getKonten($kategori)
+    {
+        $this->db->select('*');
+        $this->db->from('konten');
+        $this->db->join('kategori', 'konten.id_kategori = kategori.id_kategori');
+        $this->db->where('kategori.kategori', $kategori);
+        return $this->db->get()->result();
+    }
+
     public function tambah($tambah)
     {
         $this->db->insert('konten', $tambah);
@@ -46,9 +40,14 @@ class konten_m extends CI_Model
         $this->db->delete('konten', ['id_konten' => $id]);
     }
 
-    public function getDetailKonten($id)
+    public function getDetailKonten($id, $kategori)
     {
-        return $this->db->get_where('konten', ['id_konten' => $id])->result();;
+        $this->db->select('konten.*, kategori.kategori');
+        $this->db->from('konten');
+        $this->db->join('kategori', 'konten.id_kategori = kategori.id_kategori');
+        $this->db->where('konten.id_konten', $id);
+        $this->db->where('kategori.kategori', $kategori);
+        return $this->db->get()->result();
     }
 
     public function getKontenById($id)
@@ -62,25 +61,18 @@ class konten_m extends CI_Model
         $this->db->update('konten', $edit);
     }
 
-    public function cariKonten()
+    public function getKontenLimit($limit, $kategori)
     {
-        $keyword = $this->input->post('keyword', true);
-        $this->db->like('judul', $keyword);
-        return $this->db->get('konten')->result();
-    }
+        $tanggalEnamBulanLalu = date('Y-m-d', strtotime('-6 months'));
 
-    public function getKonten($limit)
-    {
         $this->db->select('*');
         $this->db->from('konten');
+        $this->db->join('kategori', 'konten.id_kategori = kategori.id_kategori');
+        $this->db->where('kategori.kategori', $kategori);
+
+        $this->db->where('konten.tanggal >=', $tanggalEnamBulanLalu);
+
         $this->db->limit($limit);
-        return $this->db->get()->result();
-    }
-
-    public function getAllKonten()
-    {
-        $this->db->select('*');
-        $this->db->from('konten');
         return $this->db->get()->result();
     }
 }

@@ -34,6 +34,8 @@ class informasi extends CI_Controller
             $data['title'] .= 'Kompetensi';
         } elseif ($kategori == 'mbkm') {
             $data['title'] .= 'MBKM';
+        } elseif ($kategori == 'pangkalan_data') {
+            $data['title'] .= 'Pangkalan Data';
         }
         $data['informasi'] = $this->informasi_m->getInformasiById($id);
 
@@ -72,6 +74,8 @@ class informasi extends CI_Controller
                 redirect('admin/kompetensi');
             } elseif ($kategori == 'mbkm') {
                 redirect('admin/mbkm');
+            } elseif ($kategori == 'pangkalan_data') {
+                redirect('admin/pangkalan_data');
             } else {
                 redirect('admin');
             }

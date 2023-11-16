@@ -3,18 +3,11 @@
 class dok_lp3mp_model extends CI_Model
 {
 
-  public function getDokumenPage($limit, $start)
+  public function getDokumen()
   {
     $this->db->select('*');
     $this->db->from('dok_lp3mp');
-    $this->db->limit($limit, $start);
     return $this->db->get()->result();
-  }
-
-  public function countAllDokumen()
-  {
-    $this->db->from('dok_lp3mp');
-    return $this->db->count_all_results();
   }
 
   public function tambahDokumen($tambah_data)
@@ -36,12 +29,5 @@ class dok_lp3mp_model extends CI_Model
   {
     $this->db->where('id_dok', $idk);
     $this->db->update('dok_lp3mp', $edit_data);
-  }
-
-  public function cariDokumen()
-  {
-    $keyword = $this->input->post('keyword', true);
-    $this->db->like('p_studi', $keyword);
-    return $this->db->get('dok_lp3mp')->result();
   }
 }

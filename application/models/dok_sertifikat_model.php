@@ -22,20 +22,6 @@ class dok_sertifikat_model extends CI_Model
     return $this->db->get()->result();
   }
 
-  public function getDokumenPage($limit, $start)
-  {
-    $this->db->select('*');
-    $this->db->from('dok_sertifikat');
-    $this->db->limit($limit, $start);
-    return $this->db->get()->result();
-  }
-
-  public function countAllDokumen()
-  {
-    $this->db->from('dok_sertifikat');
-    return $this->db->count_all_results();
-  }
-
   public function import($data)
   {
     $p_studi = $data['p_studi'];
@@ -69,12 +55,5 @@ class dok_sertifikat_model extends CI_Model
   {
     $this->db->where('id_dok', $idk);
     $this->db->update('dok_sertifikat', $edit_data);
-  }
-
-  public function cariDokumen()
-  {
-    $keyword = $this->input->post('keyword', true);
-    $this->db->like('p_studi', $keyword);
-    return $this->db->get('dok_sertifikat')->result();
   }
 }

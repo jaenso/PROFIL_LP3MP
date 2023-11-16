@@ -1,7 +1,7 @@
 <section class="informasi">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-10">
+      <div class="col-11">
         <?php
         foreach ($informasi as $sjr) : ?>
           <h1><?= $sjr->judul ?></h1>

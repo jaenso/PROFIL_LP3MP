@@ -22,9 +22,10 @@
                                 <a class="dropdown-item" href="<?= base_url('konten/tambah/pengumuman'); ?>">Pengumuman</a>
                                 <a class="dropdown-item" href="<?= base_url('konten/tambah/pelatihan'); ?>">Pelatihan Dosen</a>
                                 <a class="dropdown-item" href="<?= base_url('konten/tambah/benchmarking'); ?>">Benchmarking</a>
+                                <a class="dropdown-item" href="<?= base_url('konten/tambah/ami'); ?>">AMI</a>
                             </div>
                         </div>
-                        <table class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -35,11 +36,12 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            <?php
-                            foreach ($konten as $ktn) : ?>
-                                <tbody>
+                            <tbody>
+                                <?php
+                                $i = 1;
+                                foreach ($konten as $ktn) : ?>
                                     <tr>
-                                        <td><?= ++$start; ?></td>
+                                        <td><?= $i++; ?></td>
                                         <td><?= $ktn->judul ?></td>
                                         <?php
                                         $isi = $ktn->isi;
@@ -56,7 +58,7 @@
                                             <?php } ?></td>
                                             <td><?= date('d-m-Y', strtotime($ktn->tanggal)); ?></td>
                                             <td>
-                                                <a href="<?= base_url('konten/detail/' . $ktn->id_konten); ?>" class="btn bg-success">
+                                                <a href="<?= base_url('konten/detail/' . $ktn->id_konten . '/' . $ktn->kategori); ?>" class="btn bg-success">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                                 <a href="<?= base_url('konten/edit/' . $ktn->id_konten . '/' . $ktn->kategori); ?>" class="btn bg-warning">
@@ -67,10 +69,9 @@
                                                 </a>
                                             </td>
                                     </tr>
-                                </tbody>
-                            <?php endforeach ?>
+                                <?php endforeach ?>
+                            </tbody>
                         </table>
-                        <?= $this->pagination->create_links(); ?>
                     </div>
                 </div>
             </div>

@@ -17,7 +17,15 @@ class tokoh extends CI_Controller
         if ($kategori == 'pengelola') {
             $data['title'] .= 'Pengelola';
         } elseif ($kategori == 'pusat_studi') {
-            $data['title'] .= 'Pusat Studi';
+            $data['title'] .= 'Pusat Manajemen Mutu';
+        } elseif ($kategori == 'akreditasi') {
+            $data['title'] .= 'Pusat Pengelolaan Akreditasi';
+        } elseif ($kategori == 'kompetensi') {
+            $data['title'] .= 'Pusat Pelatihan dan Pengembangan Kompetisi Sumber Daya Manusia';
+        } elseif ($kategori == 'mbkm') {
+            $data['title'] .= 'Pusat Pengelolaan Merdeka Belajar Kampus Merdeka dan Kurikulum';
+        } elseif ($kategori == 'pangkalan_data') {
+            $data['title'] .= 'Pusat Pangkalan Data dan Sistem Informasi Mutu Akademik';
         }
 
         $this->form_validation->set_rules('nama', 'Nama', 'required');
@@ -53,6 +61,14 @@ class tokoh extends CI_Controller
                     $id_kategori = 5;
                 } elseif ($kategori == 'pengelola') {
                     $id_kategori = 6;
+                } elseif ($kategori == 'akreditasi') {
+                    $id_kategori = 15;
+                } elseif ($kategori == 'kompetensi') {
+                    $id_kategori = 16;
+                } elseif ($kategori == 'mbkm') {
+                    $id_kategori = 17;
+                } elseif ($kategori == 'pangkalan_data') {
+                    $id_kategori = 18;
                 }
 
                 $data = array(
@@ -71,6 +87,14 @@ class tokoh extends CI_Controller
                     redirect('admin/tokoh_pengelola');
                 } elseif ($kategori == 'pusat_studi') {
                     redirect('admin/tokoh_pusat_studi');
+                } elseif ($kategori == 'akreditasi') {
+                    redirect('admin/tokoh_akreditasi');
+                } elseif ($kategori == 'kompetensi') {
+                    redirect('admin/tokoh_kompetensi');
+                } elseif ($kategori == 'mbkm') {
+                    redirect('admin/tokoh_mbkm');
+                } elseif ($kategori == 'pangkalan_data') {
+                    redirect('admin/tokoh_pangkalan_data');
                 }
             }
         }
@@ -84,7 +108,15 @@ class tokoh extends CI_Controller
         if ($kategori == 'pengelola') {
             $data['title'] .= 'Pengelola';
         } elseif ($kategori == 'pusat_studi') {
-            $data['title'] .= 'Pusat Studi';
+            $data['title'] .= 'Pusat Manajemen Mutu';
+        } elseif ($kategori == 'akreditasi') {
+            $data['title'] .= 'Pusat Pengelolaan Akreditasi';
+        } elseif ($kategori == 'kompetensi') {
+            $data['title'] .= 'Pusat Pelatihan dan Pengembangan Kompetisi Sumber Daya Manusia';
+        } elseif ($kategori == 'mbkm') {
+            $data['title'] .= 'Pusat Pengelolaan Merdeka Belajar Kampus Merdeka dan Kurikulum';
+        } elseif ($kategori == 'pangkalan_data') {
+            $data['title'] .= 'Pusat Pangkalan Data dan Sistem Informasi Mutu Akademik';
         }
 
         $data['tokoh'] = $this->tokoh_m->getTokohById($id);
@@ -151,6 +183,14 @@ class tokoh extends CI_Controller
                 redirect('admin/tokoh_pengelola');
             } elseif ($kategori == 'pusat_studi') {
                 redirect('admin/tokoh_pusat_studi');
+            } elseif ($kategori == 'akreditasi') {
+                redirect('admin/tokoh_akreditasi');
+            } elseif ($kategori == 'kompetensi') {
+                redirect('admin/tokoh_kompetensi');
+            } elseif ($kategori == 'mbkm') {
+                redirect('admin/tokoh_mbkm');
+            } elseif ($kategori == 'pangkalan_data') {
+                redirect('admin/tokoh_pangkalan_data');
             }
         }
     }
@@ -158,7 +198,7 @@ class tokoh extends CI_Controller
 
     public function hapus($id, $kategori)
     {
-        if ($kategori == 'pengelola' || $kategori == 'pusat_studi') {
+        if ($kategori == 'pengelola' || $kategori == 'pusat_studi' || $kategori == 'akreditasi' || $kategori == 'kompetensi' || $kategori == 'mbkm' || $kategori == 'pangkalan_data') {
             $this->tokoh_m->hapus($id);
             $this->session->set_flashdata('flash', 'dihapus');
             redirect('admin/tokoh_' . $kategori);

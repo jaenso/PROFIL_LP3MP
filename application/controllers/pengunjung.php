@@ -15,16 +15,9 @@ class pengunjung extends CI_Controller
 	{
 		$data['title'] = 'Beranda';
 		$kategori = 'berita';
-
-		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/index';
-		$config['total_rows'] = $this->konten_m->countByKategori($kategori);
-		$config['per_page'] = 4;
-		$this->pagination->initialize($config);
-
 		$data['website'] = $this->wbs->getWebsite();
-		$data['start'] = $this->uri->segment(3);
-		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
-		$data['konten_lain'] = $this->konten_m->getKonten(5);
+		$data['lembaga'] = $this->informasi_m->getInformasiLembaga();
+		$data['konten'] = $this->konten_m->getKontenLimit(4, $kategori);
 
 		$this->load->view('temp_pengunjung/header', $data);
 		$this->load->view('pengunjung/index', $data);
@@ -41,6 +34,7 @@ class pengunjung extends CI_Controller
 		$config['per_page'] = 10;
 		$this->pagination->initialize($config);
 
+		$data['konten_lain'] = $this->konten_m->getKontenLimit(5, 'berita');
 		$data['website'] = $this->wbs->getWebsite();
 		$data['start'] = $this->uri->segment(3);
 		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
@@ -60,6 +54,7 @@ class pengunjung extends CI_Controller
 		$this->pagination->initialize($config);
 
 		$data['website'] = $this->wbs->getWebsite();
+		$data['konten_lain'] = $this->konten_m->getKontenLimit(5, 'berita');
 		$data['start'] = $this->uri->segment(3);
 		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
 		$this->load->view('temp_pengunjung/header', $data);
@@ -78,6 +73,7 @@ class pengunjung extends CI_Controller
 		$this->pagination->initialize($config);
 
 		$data['website'] = $this->wbs->getWebsite();
+		$data['konten_lain'] = $this->konten_m->getKontenLimit(5, 'berita');
 		$data['start'] = $this->uri->segment(3);
 		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
 		$this->load->view('temp_pengunjung/header', $data);
@@ -96,6 +92,26 @@ class pengunjung extends CI_Controller
 		$this->pagination->initialize($config);
 
 		$data['website'] = $this->wbs->getWebsite();
+		$data['konten_lain'] = $this->konten_m->getKontenLimit(5, 'berita');
+		$data['start'] = $this->uri->segment(3);
+		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/konten/index', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
+
+	public function ami()
+	{
+		$data['title'] = 'AMI';
+		$kategori = 'ami';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/ami';
+		$config['total_rows'] = $this->konten_m->countByKategori($kategori);
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['website'] = $this->wbs->getWebsite();
+		$data['konten_lain'] = $this->konten_m->getKontenLimit(5, 'berita');
 		$data['start'] = $this->uri->segment(3);
 		$data['konten'] = $this->konten_m->getKontenPage($config['per_page'], $data['start'], $kategori);
 		$this->load->view('temp_pengunjung/header', $data);
@@ -147,10 +163,93 @@ class pengunjung extends CI_Controller
 
 	public function pusat_studi()
 	{
-		$data['title'] = 'Pusat Studi';
+		$data['title'] = 'Pusat Manajemen Mutu';
 		$kategori = 'pusat_studi';
 
-		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pengelola';
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pusat_studi';
+		$config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['website'] = $this->wbs->getWebsite();
+		$data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
+		$data['informasi'] = $this->informasi_m->getInformasi($kategori);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/pengelola', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
+
+	public function akreditasi()
+	{
+		$data['title'] = 'Pusat Pengelolaan Akreditasi';
+		$kategori = 'akreditasi';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/akreditasi';
+		$config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['website'] = $this->wbs->getWebsite();
+		$data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
+		$data['informasi'] = $this->informasi_m->getInformasi($kategori);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/pengelola', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
+
+	public function kompetensi()
+	{
+		$data['title'] = 'Pusat Pelatihan dan Pengembangan
+        Kompetisi Sumber Daya Manusia';
+		$kategori = 'kompetensi';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/kompetensi';
+		$config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['website'] = $this->wbs->getWebsite();
+		$data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
+		$data['informasi'] = $this->informasi_m->getInformasi($kategori);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/pengelola', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
+
+	public function mbkm()
+	{
+		$data['title'] = 'Pusat Pengelolaan Merdeka Belajar Kampus Merdeka
+        dan Kurikulum';
+		$kategori = 'mbkm';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/mbkm';
+		$config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
+		$config['per_page'] = 10;
+		$this->pagination->initialize($config);
+
+		$data['start'] = $this->uri->segment(3);
+
+		$data['website'] = $this->wbs->getWebsite();
+		$data['tokoh'] = $this->tokoh_m->getTokohPage($config['per_page'], $data['start'], $kategori);
+		$data['informasi'] = $this->informasi_m->getInformasi($kategori);
+		$this->load->view('temp_pengunjung/header', $data);
+		$this->load->view('pengunjung/pengelola', $data);
+		$this->load->view('temp_pengunjung/footer');
+	}
+
+	public function pangkalan_data()
+	{
+		$data['title'] = 'Pusat Pengelolaan Merdeka Belajar Kampus Merdeka
+        dan Kurikulum';
+		$kategori = 'pangkalan_data';
+
+		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/pangkalan_data';
 		$config['total_rows'] = $this->tokoh_m->countByKategori($kategori);
 		$config['per_page'] = 10;
 		$this->pagination->initialize($config);
@@ -170,39 +269,12 @@ class pengunjung extends CI_Controller
 		$this->load->model('dok_lp3mp_model', 'dkm');
 		$data['title'] = 'Dokumen';
 
-		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/dokumen';
-		$config['total_rows'] = $this->dkm->countAllDokumen();
-		$config['per_page'] = 10;
-		$this->pagination->initialize($config);
-
-		$data['start'] = $this->uri->segment(3);
 		$data['website'] = $this->wbs->getWebsite();
-		$data['dokumen'] = $this->dkm->getDokumenPage($config['per_page'], $data['start']);
+		$data['dokumen'] = $this->dkm->getDokumen();
 		$this->load->view('temp_pengunjung/header', $data);
 		$this->load->view('pengunjung/dokumen', $data);
 		$this->load->view('temp_pengunjung/footer');
 	}
-
-	public function filter()
-	{
-		$fakultas = $this->input->post('fakultas');
-		$data['title'] = 'Sertifikat Akreditasi';
-
-		$this->load->model('dok_sertifikat_model', 'dok_sertifikat');
-		$data['website'] = $this->wbs->getWebsite();
-		$data['dokumen'] = $this->dok_sertifikat->filterByProgramStudi($fakultas);
-		$config['base_url'] = 'http://localhost/ci3-test/pengunjung/akreditas';
-		$config['total_rows'] = $this->dok_sertifikat->countAllDokumen();
-		$config['per_page'] = 15;
-		$this->pagination->initialize($config);
-
-		$data['start'] = $this->uri->segment(3);
-
-		$this->load->view('temp_pengunjung/header', $data);
-		$this->load->view('pengunjung/akreditas', $data);
-		$this->load->view('temp_pengunjung/footer');
-	}
-
 
 	public function akreditas()
 	{

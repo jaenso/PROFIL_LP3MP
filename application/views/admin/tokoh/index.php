@@ -20,10 +20,14 @@
 								</button>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="<?= base_url('tokoh/tambah/pengelola'); ?>">Pengelola</a>
-									<a class="dropdown-item" href="<?= base_url('tokoh/tambah/pusat_studi'); ?>">Pusat Studi</a>
+									<a class="dropdown-item" href="<?= base_url('tokoh/tambah/pusat_studi'); ?>">Pusat Manajemen Mutu</a>
+									<a class="dropdown-item" href="<?= base_url('tokoh/tambah/akreditasi'); ?>">Pusat Pengelolaan Akreditasi</a>
+									<a class="dropdown-item" href="<?= base_url('tokoh/tambah/kompetensi'); ?>">Pusat Pelatihan dan Pengembangan Kompetisi Sumber Daya Manusia</a>
+									<a class="dropdown-item" href="<?= base_url('tokoh/tambah/mbkm'); ?>">Pusat Pengelolaan Merdeka Belajar Kampus Merdeka dan Kurikulum</a>
+									<a class="dropdown-item" href="<?= base_url('tokoh/tambah/pangkalan_data'); ?>">Pusat Pangkalan Data dan Sistem Informasi Mutu Akademik</a>
 								</div>
 							</div>
-							<table class="table table-bordered">
+							<table id="example1" class="table table-bordered table-striped">
 								<?php if (empty($tokoh)) : ?>
 									<div class="alert alert-danger" role="alert">
 										Data tidak ditemukan
@@ -41,9 +45,9 @@
 										<th>Aksi</th>
 									</tr>
 								</thead>
-								<?php
-								foreach ($tokoh as $tkh) : ?>
-									<tbody>
+								<tbody>
+									<?php
+									foreach ($tokoh as $tkh) : ?>
 										<tr>
 											<td>
 												<?= ++$start; ?>
@@ -67,10 +71,9 @@
 													</a>
 												</td>
 										</tr>
-									</tbody>
-								<?php endforeach ?>
+									<?php endforeach ?>
+								</tbody>
 							</table>
-							<?= $this->pagination->create_links(); ?>
 						</div>
 					</div>
 				</div>

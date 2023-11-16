@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800 &family=Roboto:wght@300;400;700;900&display=swap");:root {
     --dark-color: #03001c;
     --white-color: #ffffff;
-    /* --primary-color: #075391; */
     --primary-color: #23396c;
     --secondary-color: #919cb6;
 }
@@ -12,8 +11,25 @@
     font-family: "Poppins", sans-serif;
 }
 
+.lembaga,
+.outer-link,
+.berita-utama {
+    padding-top: 5vh;
+}
+
+.lembaga h1,
+.outer-link h1,
+.berita-utama h1 {
+    text-align: center;
+    font-weight: bolder;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin: 20px 0;
+}
+
 .informasi h1,
 .konten h1 {
+    margin: 20px 0;
     font-weight: bolder;
     text-transform: uppercase;
     font-size: 2.2rem;
@@ -46,7 +62,6 @@ i {
 }
 
 .nav-item,
-i,
 .dropdown-menu .dropdown-item {
     display: flex;
     align-items: center;
@@ -59,6 +74,10 @@ i,
 }
 
 /* SIDEBAR */
+.sidebar {
+    padding-left: 5vh;
+}
+
 .sidebar h2 {
     border-left: 5px solid var(--primary-color);
     padding-left: 10px;
@@ -70,13 +89,18 @@ i,
     text-decoration: none;
     padding-left: 20px;
     color: var(--dark-color);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+}
+
+.sidebar a:hover {
+    padding-left: 20px;
+    color: var(--primary-color);
 }
 
 .banner {
     background-size: cover;
     background-position: center;
-    height: 20vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,37 +109,25 @@ i,
 }
 
 .banner-content {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     padding: 20px;
     border-radius: 5px;
+    border: 1px solid white;
 }
+
 
 .banner-content h1 {
-    font-size: 15px;
-    margin: 0;
-}
-
-/* RECENT-POST */
-.recent-post h1 {
-    font-size: 0.9rem;
-    text-align: start;
-    color: #555;
-}
-
-.recent-post a {
-    font-size: 1rem;
-    color: var(--dark-color);
+    font-size: 1.2rem;
 }
 
 /* OUTER LINK */
-.outer-link h1 {
-    font-size: 0.9rem;
-    text-align: start;
-    color: #555;
+.outer-link .format {
+    text-align: center;
 }
+
 .outer-link .bingkai-format {
-    width: 11vh;
-    height: 8vh;
+    width: 32vh;
+    height: 24vh;
 }
 
 .outer-link a {
@@ -123,16 +135,11 @@ i,
     color: var(--dark-color);
 }
 
-.outer-link span {
-    font-size: 0.7rem;
-}
-
 /* LEMBAGA */
 .lembaga .card {
     margin-top: 20px;
     max-width: 85vh;
-    max-height: 75vh;
-    overflow: hidden;
+    max-height: auto;
 }
 
 .lembaga .card .bingkai-lembaga {
@@ -167,7 +174,7 @@ i,
 
 .berita-utama .card {
     max-width: 40vh;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .berita-utama .card .bingkai-berita-utama {
@@ -191,45 +198,25 @@ i,
     font-size: 0.9rem;
 }
 
-/* BERITA SLIDE */
-/* .berita-slide .card {
-  padding: 20px 0;
-  max-width: 40vh;
-  overflow: hidden;
-  border: none;
+.berita-utama a.btn {
+    background-color: var(--primary-color);
+    color: var(--white-color);
 }
 
-.berita-slide .card .card-img-top {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  display: block;
-}
-
-.berita-slide .card-body h2 {
-  font-size: 0.5rem;
-  font-weight: 600;
-  color: var(--dark-color);
-}
-
-.berita-slide p {
-  font-size: 1rem;
-} */
-
-@media screen and(max-width: 768px) {
-    .berita-slide .card .card-img-top {
-        height: 150px;
-    }
+.berita-utama a.btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
 }
 
 /* BERITA & PENGUMUMAN */
 .konten .card {
     border: none;
+    margin-bottom: 20px;
 }
 
 .konten img {
     max-width: 128vh;
-    max-height: 65vh;
+    max-height: 50vh;
     object-fit: cover;
 }
 
@@ -248,42 +235,31 @@ i,
     color: var(--dark-color);
 }
 
-.konten .isi p {
+.konten .isi p,
+a {
+    text-decoration: none;
     font-size: 1rem;
     margin-top: 10px;
-}
-
-.konten .isi a {
-    font-size: 1rem;
     color: var(--dark-color);
-    background-color: var(--primary-color);
 }
 
 .konten .isi a:hover {
+    color: var(--primary-color);
+}
+
+.konten a.btn {
     background-color: var(--primary-color);
     color: var(--white-color);
 }
 
-/* ISI BERITA & PENGUMUMAN */
-.isi-konten .identitas h3,
-span a {
-    font-size: 0.9rem;
+.konten a.btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
 }
 
-.isi-konten h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: start;
-}
-
-.isi-konten p {
-    text-align: justify;
-    font-size: 1rem;
-}
-
-.isi-konten .bingkai-konten {
+.konten .bingkai-konten {
     width: 100%;
-    height: 700px;
+    height: 50vh;
     object-fit: cover;
     padding: 20px 0;
 }
@@ -317,41 +293,14 @@ li a {
     color: var(--secondary-color);
 }
 
-h3.judul-berita {
-    font-size: 15px;
-}
-
 /* PENGELOLA */
-.tokoh {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.tokoh:hover {
-    background-color: #f0f0f0;
-}
-
-.deskripsi-tokoh {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-}
-
-.tokoh.active .deskripsi-tokoh {
-    max-height: 1000px;
-}
-
-.pengelola-deskripsi .bingkai-pengelola {
+.informasi .pengelola .bingkai-pengelola {
     width: 300px;
     height: 350px;
     object-fit: cover;
 }
 
-.pengelola-deskripsi p {
-    padding-top: 1rem;
-    line-height: 1.6;
-    font-size: 1.4rem;
+.informasi .pengelola .btn-pengelola {
+    width: 100%;
+    text-align: left;
 }

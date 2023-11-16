@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="<?= base_url(); ?>pengunjung/index"><i class="bi bi-house-door-fill"></i></a>
+            <a class="nav-link" href="<?= base_url(); ?>pengunjung/index"><i class="bi bi-house-door-fill"></i></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,8 +43,28 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?= base_url(); ?>pengunjung/pusat_studi">Pusat Studi</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Pusat Studi
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="<?= base_url(); ?>pengunjung/pusat_studi">Pusat Manajemen Mutu</a></li>
+              <li>
+                <a class="dropdown-item" href="<?= base_url(); ?>pengunjung/akreditasi">Pusat Pengelolaan Akreditasi</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="<?= base_url(); ?>pengunjung/kompetensi">Pusat Pelatihan dan Pengembangan
+                  Kompetisi Sumber Daya Manusia</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="<?= base_url(); ?>pengunjung/mbkm">Pusat Pengelolaan Merdeka Belajar Kampus Merdeka
+                  dan Kurikulum</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="<?= base_url(); ?>pengunjung/pangkalan_data">Pusat Pangkalan Data dan Sistem
+                  Informasi Mutu Akademik</a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url(); ?>pengunjung/dokumen">Dokumen</a>

@@ -22,6 +22,8 @@ class konten extends CI_Controller
             $data['title'] .= 'Pelatihan';
         } elseif ($kategori == 'benchmarking') {
             $data['title'] .= 'Benchmarking';
+        } elseif ($kategori == 'ami') {
+            $data['title'] .= 'AMI';
         }
 
         $this->form_validation->set_rules('judul', 'Judul', 'required');
@@ -59,6 +61,8 @@ class konten extends CI_Controller
                     $id_kategori = 10;
                 } elseif ($kategori == 'benchmarking') {
                     $id_kategori = 11;
+                } elseif ($kategori == 'ami') {
+                    $id_kategori = 19;
                 }
 
                 $data = array(
@@ -80,6 +84,8 @@ class konten extends CI_Controller
                     redirect('admin/pelatihan');
                 } elseif ($kategori == 'benchmarking') {
                     redirect('admin/benchmarking');
+                } elseif ($kategori == 'ami') {
+                    redirect('admin/ami');
                 }
             }
         }
@@ -97,6 +103,8 @@ class konten extends CI_Controller
             $data['title'] .= 'Pelatihan';
         } elseif ($kategori == 'benchmarking') {
             $data['title'] .= 'Benchmarking';
+        } elseif ($kategori == 'ami') {
+            $data['title'] .= 'AMI';
         }
 
         $data['konten'] = $this->konten_m->getKontenById($id);
@@ -159,19 +167,19 @@ class konten extends CI_Controller
 
     public function hapus($id, $kategori)
     {
-        if ($kategori == 'berita' || $kategori == 'pengumuman' || $kategori == 'pelatihan' || $kategori == 'benchmarking') {
+        if ($kategori == 'berita' || $kategori == 'pengumuman' || $kategori == 'pelatihan' || $kategori == 'benchmarking' || $kategori == 'ami') {
             $this->konten_m->hapus($id);
             $this->session->set_flashdata('flash', 'dihapus');
             redirect('admin/' . $kategori);
         }
     }
 
-    public function detail($id)
+    public function detail($id, $kategori)
     {
         $data['title'] = 'Konten Berita';
         $data['website'] = $this->wbs->getWebsite();
-        $data['konten_lain'] = $this->konten_m->getAllKonten();
-        $data['konten'] = $this->konten_m->getDetailKonten($id);
+        $data['konten_lain'] = $this->konten_m->getKontenLimit(4, $kategori);
+        $data['konten'] = $this->konten_m->getDetailKonten($id, $kategori);
         $this->load->view('temp_pengunjung/header', $data);
         $this->load->view('pengunjung/konten/isi_konten', $data);
         $this->load->view('temp_pengunjung/footer');

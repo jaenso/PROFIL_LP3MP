@@ -2,7 +2,6 @@
 
 class tokoh_m extends CI_Model
 {
-
     public function countByKategori($kategori)
     {
         $this->db->from('tokoh');
@@ -48,12 +47,5 @@ class tokoh_m extends CI_Model
     {
         $this->db->where('id_tokoh', $id);
         $this->db->update('tokoh', $edit);
-    }
-
-    public function caritokoh()
-    {
-        $keyword = $this->input->post('keyword', true);
-        $this->db->like('judul', $keyword);
-        return $this->db->get('tokoh')->result();
     }
 }

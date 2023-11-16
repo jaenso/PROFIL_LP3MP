@@ -1,7 +1,7 @@
 <section class="informasi">
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-10">
+			<div class="col-11">
 				<h1>Dokumen</h1>
 				<div class="row justify-content-center">
 					<?php foreach ($dokumen as $dkm) : ?>
